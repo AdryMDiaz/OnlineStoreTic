@@ -11,19 +11,19 @@ String clave = request.getParameter("clave");
 
 if ("admininicial".equals(usuario) && "admin123456".equals(clave)){
 	session.setAttribute("usuario", usuario);
-	response.sendRedirect("admin/adminHome.jsp");
+	response.sendRedirect("AdminHome.jsp");
 } else {
 	int z=0;
 	try{
 		Connection con=ConnectionProvider.getCon();
 		Statement stmt=con.createStatement();
-		String query="select * from storetic.usuarios where usuario='" + usuario + "' and clave='" + clave + "'";
+		String query="select * from storetic.usuarios where usuario='" + usuario + "' and clave='" + clave + "'" + "and estado ='activo'";
 		ResultSet rs = stmt.executeQuery(query);
 		
 		while (rs.next()){
 			z=1;
 			session.setAttribute("usuario", usuario);
-			response.sendRedirect("home.jsp");
+			response.sendRedirect("HomeUser.jsp");
 		}
 		
 		if (z==0){
