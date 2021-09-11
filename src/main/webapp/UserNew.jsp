@@ -15,14 +15,11 @@
 			<div class="card-body">
 				<form class="form-sign" action="UserNewAction.jsp" method="POST">
 					<div class="form-group text-center">
+					<img alt="70" width="370" src="img/BannerStoreTIC.jpeg"/>
 						<figure class="text-center">
-  							<blockquote class="blockquote">
-								<h2>Bienvenido a Store TIC</h2>
-							</blockquote>
+								<h2></h2>
 						<figure class="text-center">
-  							<blockquote class="blockquote">
-								<p>Store TIC es un sistema de compras online que permite a los usuarios comprar en línea sin tener que ir a las tiendas físicas</p>
-							</blockquote>
+								<h5 style="color:#6610f2">Sistema de Compras Online</h5>
 						<div class="mb-3">
 							<input type="text" name="cedula" class="form-control" id="formGroupExampleInput" placeholder="Digite documento de identidad" required>
 						</div>
@@ -38,39 +35,29 @@
 						<div class="mb-3">
 							<input type="password" name="clave" class="form-control" id="formGroupExampleInput" placeholder="Digite contraseña" required>
 						</div>
-						<input type="submit" name="accion" value="Registrar" class="btn btn-primary btn">
+							<input style="background-color:#6610f2;color:#FFFFFF;border:#6610f2 1px solid" type="submit" name="accion" value="Registrar" class="btn btn-primary btn">
 					</div>
 				</form>
 				<p></p>
-				<figure class="text-center">
-  					<blockquote class="blockquote">
-						<h6><a href="ModuloLogin.jsp" class="link-primary">Ya estoy registrado</a></h6>
-					</blockquote>
-				<figure class="text-center">
-  					<blockquote class="blockquote">
-						<h6><a href="" class="link-primary">Olvidé mi contraseña</a></h6>
-					</blockquote>
+				<div class="row row-cols-lg-7 g-1">
+    				<div class="col" >
+						<h6 class="text-center"><a style="color:#6610f2" href="ModuloLogin.jsp" class="link-primary">Ya estoy registrado</a></h6>
+					</div>
+    				<div class="col">
+      					<h6 class="text-center"><a style="color:#6610f2" href="OlvidePass.jsp" class="link-primary">Olvidé mi contraseña</a></h6>
+					</div>
 				<%
 				String msg=request.getParameter("msg");
 
 				if ("valid".equals(msg)){
 				%>
 				<figure class="text-center">
-  					<blockquote class="blockquote">
-  						<div class="alert-success">
-							<strong>Registro Exitoso</strong>
-						</div>
-					</blockquote>
+  					<strong style="color:#198754" class="text-center">Registro Exitoso</strong>
 				<%}%>
 				<%
 				if("invalid".equals(msg)){
 				%>
-				<figure class="text-center">
-  					<blockquote class="blockquote">
-  						<div class="alert-warning">
-							<strong>Usuario ya registrado</Strong>
-						</div>
-				</blockquote>
+					<strong style="color:#dc3545" class="text-center">Usuario ya se encuentra registrado</Strong>
 				<%}%>
 			</div>
 		</div>

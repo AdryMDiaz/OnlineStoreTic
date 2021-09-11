@@ -10,58 +10,48 @@
 <title>Store TIC - Login</title>
 </head>
 <body>
-	<div class="container mt-4 col-lg-4">
-		<div class="card col-sm-10">
-			<div class="card-body">
+	<div class="container mt-4 col-lg-5">
+		<div class="card col-sm-11">
+			<div class="card-body" style="border:#6610f2 1px solid">
 				<form class="form-sign" action="ModuloLoginAction.jsp" method="POST">
 					<div class="form-group text-center">
+					<img alt="70" width="545" src="img/BannerStoreTIC.jpeg"/>
 						<figure class="text-center">
-  							<blockquote class="blockquote">
-								<h2>Bienvenido a Store TIC</h2>
-							</blockquote>
+							<h2></h2>
 						<figure class="text-center">
-  							<blockquote class="blockquote">
-								<p>Store TIC es un sistema de compras online que permite a los usuarios comprar en línea sin tener que ir a las tiendas físicas</p>
-							</blockquote>
+							<h5 style="color:#6610f2">Sistema de Compras Online</h5>
+						<div class="mb-3" >
+							<input type="text" name="usuario" class="form-control"	id="formGroupExampleInput" placeholder="Digite usuario" required>
+						</div>
+						<div class="mb-3">
+							<input type="password" name="clave" class="form-control" id="formGroupExampleInput" placeholder="Digite contraseña" required>
+						</div>
+						<input style="background-color:#6610f2;color:#FFFFFF;border:#6610f2 1px solid" type="submit" name="accion" value="Ingresar" class="btn btn-warning btn" >
 					</div>
-					<div class="form-group">
-						<label>Usuario </label> <input type="text" name="usuario" class="form-control" placeholder="Digite usuario" required>
-						<p></p>
-					</div>
-					<div class="form-group" id="show_hide_password">
-						<label>Password</label> <input type="password" name="clave" class="form-control" placeholder="Digite su contraseña" required>
-						<p></p>
-					</div>
-						<input type="submit" name="accion" value="Ingresar" class="btn btn-primary btn">
-					<div>
-					<p></p>
-					<figure class="text-center">
-  						<blockquote class="blockquote">
-							<h6><a href="UserNew.jsp">Registrese con nosotros</a></h6>
-						</blockquote>
-					<figure class="text-center">
-  						<blockquote class="blockquote">
-							<h6><a href="OlvidePass.jsp">Olvidé mi contraseña</a></h6>
-						</blockquote>
+				</form>
+				<div class="row row-cols-lg-7 g-1">
+    				<div class="col" >
+      					<div><h6 class="text-center"><a style="color:#6610f2"  href="UserNew.jsp">Regístrate con nosotros</a></h6></div>
+    				</div>
+    				<div class="col">
+      					<div><h6 class="text-center"><a style="color:#6610f2" href="OlvidePass.jsp">Olvidé mi contraseña</a></h6></div>
+    				</div>
+    				<div class="col">
+      					<div><h6 class="text-center"><a style="color:#6610f2" href="darbaja.jsp">Darme de baja</a></h6></div>
+    				</div>
 					<% 
 					String msg=request.getParameter("msg");
 
 					if ("notexist".equals(msg)){
 					%>
-					<figure class="text-center">
-  					<blockquote class="blockquote">
-  						<div class="alert-danger">
-							<strong>Usuario o Contraseña Incorrecta</strong>
-						</div>
-					</blockquote>
+						<strong style="color:#dc3545" class="text-center">Usuario o Contraseña Incorrecta</strong>
 					<% } %>
 					<%
 					if ("invalid".equals(msg)){
 					%>
-					<h6>Algo salió mal! Intentalo de nuevo!</h6>
+						<strong style="color:#dc3545" class="text-center">Algo salió mal! Intentalo de nuevo!</strong>
 					<% } %>
 					</div>
-				</form>
 			</div>
 		</div>
 	</div>
