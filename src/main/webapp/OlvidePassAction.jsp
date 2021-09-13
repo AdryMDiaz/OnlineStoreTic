@@ -19,7 +19,7 @@ try{
 	
 	while (rs.next()){
 		check=1;
-		String sql="update storetic.usuarios set clave='" + newclave + "' where cedula='" + cedula + "' and nombre_completo='" + nombre_completo + "' and correo_electronico='" + correo_electronico + "' and usuario='" + usuario + "'";
+		String sql="update storetic.usuarios set clave='" + newclave + "' where cedula='" + cedula + "' and nombre_completo='" + nombre_completo + "' and correo_electronico='" + correo_electronico + "' and usuario='" + usuario + "' and estado='activo'";
 		stmt.executeUpdate(sql);
 		response.sendRedirect("OlvidePass.jsp?msg=done");
 	}

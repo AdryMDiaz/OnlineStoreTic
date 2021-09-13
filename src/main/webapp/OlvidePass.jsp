@@ -33,7 +33,7 @@
 							<input type="text" name="usuario" class="form-control"	id="formGroupExampleInput" placeholder="Digite usuario" required>
 						</div>
 						<div class="mb-3">
-							<input type="password" name="newclave" class="form-control" id="formGroupExampleInput" placeholder="Digite contraseña" required>
+							<input type="password" name="newclave" class="form-control" id="formGroupExampleInput" placeholder="Digite nueva contraseña" required>
 						</div>
 						<input style="background-color:#6610f2;color:#FFFFFF;border:#6610f2 1px solid" type="submit" name="accion" value="Guardar" class="btn btn-primary btn">
 					</div>

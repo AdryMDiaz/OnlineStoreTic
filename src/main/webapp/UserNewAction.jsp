@@ -1,4 +1,6 @@
-<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.*"%>
 <%@page import="com.storetic.ConnectionProvider"%>
 <%@page import="java.sql.Connection"%>
 
