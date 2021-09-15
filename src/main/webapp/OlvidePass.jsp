@@ -12,14 +12,14 @@
 <body>
 	<div class="container mt-4 col-lg-4">
 		<div class="card col-sm-10">
-			<div class="card-body">
+			<div class="card-body" style="border:#198754 1px solid">
 				<form class="form-sign" action="OlvidePassAction.jsp" method="POST">
 					<div class="form-group text-center">
-					<img alt="70" width="370" src="img/BannerStoreTIC.jpeg"/>
+					<img alt="" width="200" src="img/BannerStoreTIC2.png"/>
 						<figure class="text-center">
 								<h2></h2>
 						<figure class="text-center">
-							<h5 style="color:#6610f2">Sistema de Compras Online</h5>
+							<h5 style="color:#198754">Sistema de Compras Online</h5>
 						<div class="mb-3">
 							<input type="text" name="cedula" class="form-control" id="formGroupExampleInput" placeholder="Digite documento de identidad" required>
 						</div>
@@ -35,12 +35,12 @@
 						<div class="mb-3">
 							<input type="password" name="newclave" class="form-control" id="formGroupExampleInput" placeholder="Digite nueva contraseña" required>
 						</div>
-						<input style="background-color:#6610f2;color:#FFFFFF;border:#6610f2 1px solid" type="submit" name="accion" value="Guardar" class="btn btn-primary btn">
+						<input style="background-color:#198754;color:#FFFFFF;border:#198754 1px solid" type="submit" name="accion" value="Guardar" class="btn btn-primary btn">
 					</div>
 				</form>
 				<p></p>
 				<figure class="text-center">
-						<h6><a style="color:#6610f2" href="ModuloLogin.jsp" class="link-primary">Ya estoy registrado</a></h6>
+						<h6><a style="color:#198754" href="ModuloLogin.jsp" class="link-primary">Ya estoy registrado</a></h6>
 				<%
 				String msg=request.getParameter("msg");
 				if ("done".equals(msg)){

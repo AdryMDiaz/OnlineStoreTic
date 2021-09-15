@@ -10,34 +10,37 @@
 <title>Store TIC - Login</title>
 </head>
 <body>
-	<div class="container mt-4 col-lg-5">
+	<div class="container mt-4 col-lg-4">
 		<div class="card col-sm-11">
-			<div class="card-body" style="border:#6610f2 1px solid">
+			<div class="card-body" style="border:#198754 1px solid">
 				<form class="form-sign" action="ModuloLoginAction.jsp" method="POST">
 					<div class="form-group text-center">
-					<img alt="70" width="545" src="img/BannerStoreTIC.jpeg"/>
+					<img alt="" width="300" src="img/BannerStoreTIC2.png"/>
 						<figure class="text-center">
 							<h2></h2>
 						<figure class="text-center">
-							<h5 style="color:#6610f2">Sistema de Compras Online</h5>
+							<h5 style="color:#198754">Sistema de Compras Online</h5>
 						<div class="mb-3" >
 							<input type="text" name="usuario" class="form-control"	id="formGroupExampleInput" placeholder="Digite usuario" required>
 						</div>
 						<div class="mb-3">
 							<input type="password" name="clave" class="form-control" id="formGroupExampleInput" placeholder="Digite contraseña" required>
 						</div>
-						<input style="background-color:#6610f2;color:#FFFFFF;border:#6610f2 1px solid" type="submit" name="accion" value="Ingresar" class="btn btn-warning btn" >
+						<input style="background-color:#198754;color:#FFFFFF;border:#198754 1px solid" type="submit" name="accion" value="Ingresar" class="btn btn-warning btn" >
 					</div>
 				</form>
-				<div class="row row-cols-lg-7 g-1">
+				<div class="row row-cols-2 row-cols-lg-7 g-1 g-lg-3">
     				<div class="col" >
-      					<div><h6 class="text-center"><a style="color:#6610f2"  href="UserNew.jsp">Regístrate con nosotros</a></h6></div>
+      					<div><h6 class="text-center"><a style="color:#198754"  href="UserNew.jsp">Regístrate con nosotros</a></h6></div>
     				</div>
     				<div class="col">
-      					<div><h6 class="text-center"><a style="color:#6610f2" href="OlvidePass.jsp">Olvidé mi contraseña</a></h6></div>
+      					<div><h6 class="text-center"><a style="color:#198754" href="OlvidePass.jsp">Olvidé mi contraseña</a></h6></div>
     				</div>
     				<div class="col">
-      					<div><h6 class="text-center"><a style="color:#6610f2" href="DarBaja.jsp">Darme de baja</a></h6></div>
+      					<div><h6 class="text-center"><a style="color:#198754" href="DarBaja.jsp">Darme de baja</a></h6></div>
+    				</div>
+    				<div class="col">
+      					<div><h6 class="text-center"><a style="color:#198754" href="Reactivar.jsp">Reactivarme en StoreTIC</a></h6></div>
     				</div>
 					<% 
 					String msg=request.getParameter("msg");
