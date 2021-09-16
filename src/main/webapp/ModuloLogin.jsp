@@ -8,6 +8,7 @@
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
 <title>Store TIC - Login</title>
+<link rel="shortcut icon" href="icon/BannerStoreTIC2.png">
 </head>
 <body>
 	<div class="container mt-4 col-lg-4">
@@ -37,7 +38,7 @@
       					<div><h6 class="text-center"><a style="color:#198754" href="OlvidePass.jsp">Olvidé mi contraseña</a></h6></div>
     				</div>
     				<div class="col">
-      					<div><h6 class="text-center"><a style="color:#198754" href="DarBaja.jsp">Darme de baja</a></h6></div>
+      					<div><h6 class="text-center"><a style="color:#198754" href="DarBaja.jsp">Darme de baja en StoreTIC</a></h6></div>
     				</div>
     				<div class="col">
       					<div><h6 class="text-center"><a style="color:#198754" href="Reactivar.jsp">Reactivarme en StoreTIC</a></h6></div>

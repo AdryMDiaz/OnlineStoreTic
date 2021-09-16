@@ -8,6 +8,7 @@
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
 <title>Store TIC - Olvido Contraseña</title>
+<link rel="shortcut icon" href="icon/BannerStoreTIC2.png">
 </head>
 <body>
 	<div class="container mt-4 col-lg-4">
