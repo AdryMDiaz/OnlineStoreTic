@@ -15,10 +15,12 @@ String direccion="";
 String ciudad="";
 String departamento="";
 String pais="";
+String telefono_celular="0";
+String telefono_fijo="0";
 
 try{
 	Connection con=ConnectionProvider.getCon();
-	String sql="insert into storetic.usuarios values (?,?,?,?,?,?,?,?,?,?)";
+	String sql="insert into storetic.clientes values (?,?,?,?,?,?,?,?,?,?,?,?)";
 	PreparedStatement ps=con.prepareStatement(sql);
 	
 	ps.setInt(1, Integer.parseInt(cedula));
@@ -31,11 +33,14 @@ try{
 	ps.setString(8, ciudad);
 	ps.setString(9, departamento);
 	ps.setString(10, pais);
+	ps.setInt(11, Integer.parseInt(telefono_celular));
+	ps.setInt(12, Integer.parseInt(telefono_fijo));
 	ps.executeUpdate();
 	response.sendRedirect("UserNew.jsp?msg=valid");
 	ps.close();
 } catch (Exception e) {
 	System.out.println(e);
 	response.sendRedirect("UserNew.jsp?msg=invalid");
+	
 }
 %>

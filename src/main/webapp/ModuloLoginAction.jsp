@@ -17,7 +17,7 @@ if ("admininicial".equals(usuario) && "admin123456".equals(clave)){
 	try{
 		Connection con=ConnectionProvider.getCon();
 		Statement stmt=con.createStatement();
-		String query="select * from storetic.usuarios where usuario='" + usuario + "' and clave='" + clave + "'" + "and estado ='activo'";
+		String query="select * from storetic.clientes where usuario='" + usuario + "' and clave='" + clave + "'" + "and estado ='activo'";
 		ResultSet rs = stmt.executeQuery(query);
 		
 		while (rs.next()){

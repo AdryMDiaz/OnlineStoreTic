@@ -10,12 +10,12 @@ int check=0;
 try{
 	Connection con=ConnectionProvider.getCon();
 	Statement stmt=con.createStatement();
-	String query="select * from storetic.usuarios where correo_electronico='" + correo_electronico + "' and estado='activo'";
+	String query="select * from storetic.clientes where correo_electronico='" + correo_electronico + "' and estado='activo'";
 	ResultSet rs=stmt.executeQuery(query);
 	
 	while (rs.next()){
 		check=1;
-		String sql="update storetic.usuarios set estado='inactivo' where correo_electronico='" + correo_electronico + "'";
+		String sql="update storetic.clientes set estado='inactivo' where correo_electronico='" + correo_electronico + "'";
 		stmt.executeUpdate(sql);
 		response.sendRedirect("DarBaja.jsp?msg=delete");
 	}

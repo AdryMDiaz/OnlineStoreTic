@@ -43,19 +43,21 @@
     				<div class="col">
       					<div><h6 class="text-center"><a style="color:#198754" href="Reactivar.jsp">Reactivarme en StoreTIC</a></h6></div>
     				</div>
-					<% 
+    			</div>
+    			<% 
 					String msg=request.getParameter("msg");
 
 					if ("notexist".equals(msg)){
 					%>
-						<strong style="color:#dc3545" class="text-center">Usuario o Contraseña Incorrectos</strong>
+						<figure class="text-center">
+						<strong class="text-center" style="color:#dc3545">Usuario o Contraseña Incorrectos</strong>
 					<% } %>
 					<%
 					if ("invalid".equals(msg)){
 					%>
-						<strong style="color:#dc3545" class="text-center">Algo salió mal! Intentalo de nuevo!</strong>
-					<% } %>
-					</div>
+						<figure class="text-center">
+						<strong class="text-center" style="color:#dc3545">Algo salió mal! Intentalo de nuevo!</strong>
+				<% } %>
 			</div>
 		</div>
 	</div>

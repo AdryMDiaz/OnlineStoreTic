@@ -14,12 +14,12 @@ int check=0;
 try{
 	Connection con=ConnectionProvider.getCon();
 	Statement stmt=con.createStatement();
-	String query="select * from storetic.usuarios where cedula='" + cedula + "' and nombre_completo='" + nombre_completo + "' and correo_electronico='" + correo_electronico + "' and usuario='" + usuario + "'";
+	String query="select * from storetic.clientes where cedula='" + cedula + "' and nombre_completo='" + nombre_completo + "' and correo_electronico='" + correo_electronico + "' and usuario='" + usuario + "'";
 	ResultSet rs=stmt.executeQuery(query);
 	
 	while (rs.next()){
 		check=1;
-		String sql="update storetic.usuarios set clave='" + newclave + "' where cedula='" + cedula + "' and nombre_completo='" + nombre_completo + "' and correo_electronico='" + correo_electronico + "' and usuario='" + usuario + "' and estado='activo'";
+		String sql="update storetic.clientes set clave='" + newclave + "' where cedula='" + cedula + "' and nombre_completo='" + nombre_completo + "' and correo_electronico='" + correo_electronico + "' and usuario='" + usuario + "' and estado='activo'";
 		stmt.executeUpdate(sql);
 		response.sendRedirect("OlvidePass.jsp?msg=done");
 	}

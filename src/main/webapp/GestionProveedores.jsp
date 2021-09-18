@@ -4,6 +4,8 @@
 <%@page import="com.storetic.ConnectionProvider"%>
 <%@page import="java.sql.Connection"%>
 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,33 +15,30 @@
 	rel="stylesheet"
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
-<title>Insert title here</title>
+<title>Gestión de los Proveedores</title>
 </head>
+<body>
 	<div class="container mt-4">
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th scope="col">CEDULA</th>
-					<th scope="col">NOMBRE COMPLETO</th>
-					<th scope="col">CORREO ELECTRONICO</th>
-					<th scope="col">USUARIO INGRESO</th>
-					<th scope="col">CLAVE INGRESO</th>
-					<th scope="col">ESTADO</th>
-					<th scope="col">DIRECCION</th>
-					<th scope="col">CIUDAD</th>
-					<th scope="col">DEPARTAMENTO</th>
-					<th scope="col">PAÍS</th>
-					<th scope="col">NÚMERO CELULAR</th>
-					<th scope="col">NÚMERO FIJO</th>
-					<th scope="col">ELIMINAR</th>
+					<th>NIT</th>
+					<th>NOMBRE PROVEEDOR</th>
+					<th>DIRECCIÓN</th>
+					<th>MUNICIPIO</th>
+					<th>DEPARTAMENTO</th>
+					<th>PAÍS</th>
+					<th>TELÉFONO</th>
+					<th>CELULAR</th>
+					<th>CORREO ELECTRÓNICO</th>
 				</tr>
 			</thead>
 			<tbody>
-			<%
+				<%
 			try{
 				Connection con=ConnectionProvider.getCon();
 				Statement stmt=con.createStatement();
-				String query="select * from storetic.clientes";
+				String query="select * from storetic.proveedores";
 				ResultSet rs = stmt.executeQuery(query);
 				
 				while (rs.next()){
@@ -55,9 +54,7 @@
 				<td><%=rs.getString(7)%></td>
 				<td><%=rs.getString(8)%></td>
 				<td><%=rs.getString(9)%></td>
-				<td><%=rs.getString(10)%></td>
-				<td><%=rs.getString(11)%></td>
-				<td><%=rs.getString(12)%></td>
+				<td><a class="dropdown-item" href="#">Eliminar</a></td>
 				<td><a href="#">Eliminar<i class='fas fa-pen-fancy'></i></a></td>
 			</tr>
 			<% }
@@ -65,7 +62,7 @@
 			}catch(Exception e){
 				System.out.println(e);
 			}
-			%>	
+			%>
 			</tbody>
 		</table>
 	</div>

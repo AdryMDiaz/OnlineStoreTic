@@ -1,3 +1,11 @@
+<%@page import="org.apache.catalina.connector.Response"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="com.storetic.ConnectionProvider"%>
+<%@page import="java.sql.Connection"%>
+<%@include file="HomeUser.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,98 +19,161 @@
 <link rel="shortcut icon" href="icon/BannerStoreTIC2.png">
 </head>
 <body>
-	<img alt="" width="100" src="img/BannerStoreTIC2.png" />
-	<nav class="nav nav-pills flex-column flex-sm-row">
-		<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" style="background-color: #0dcaf0">Actualiza tu información</a>
-		<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" aria-disabled="true">Productos</a>
-		<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" aria-disabled="true">Síguenos</a>
-		<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contactanos</a>
-	</nav>
+<%
+try{
+	Connection con=ConnectionProvider.getCon();
+	Statement stmt=con.createStatement();
+	String query="select * from storetic.clientes where usuario='" + usuario + "'";
+	ResultSet rs = stmt.executeQuery(query);
+	
+	while (rs.next()){
+%>
 	<div class="container mt-5 col-lg-6">
 		<div class="card col-sm-14">
 			<div class="card-body">
-				<form class="form-sign" action="" method="POST">
+				<form class="form-sign" action="UpdateUserAction.jsp" method="POST">
 					<div class="row">
 						<div class="col-md-6 mb-3">
-    						<label for="inputcedula" class="form-label">Número de Identificación</label>
-    						<input type="text" class="form-control" id="inputcedula" placeholder="Número de Identificación" required>
+    						<label for="cedula" class="form-label">Número de Identificación</label>
+    						<input type="text" class="form-control" id="cedula" value="<%=rs.getString(1)%>" placeholder="Número de documento de identidad" readonly="readonly" required>
   						</div>
   						<div class="col-md-6 mb-3">
-    						<label for="inputnombre_completo" class="form-label">Nombres y Apellidos</label>
-    						<input type="text" class="form-control" id="inputnombre_completo" placeholder="Nombres y Apellidos completos" required>
+    						<label for="newnombre_completo" class="form-label">Nombres y Apellidos</label>
+    						<input type="text" class="form-control" id="newnombre_completo" value="<%=rs.getString(2)%>" placeholder="Nombres y Apellidos completos" required>
   						</div>
   					</div>
   					<div class="row">
 						<div class="col-md-6 mb-3">
-    						<label for="inputcorreo_electronico" class="form-label">Dirección de Correo Electrónico</label>
-    						<input type="email" class="form-control" id="inputcorreo_electronico" placeholder="Dirección de correo eletrónico" required>
+    						<label for="newcorreo_electronico" class="form-label">Dirección de Correo Electrónico</label>
+    						<input type="email" class="form-control" id="newcorreo_electronico" value="<%=rs.getString(3)%>" placeholder="Dirección de correo eletrónico" required>
   						</div>
   						<div class="col-md-3 mb-3">
-    						<label for="inputusuario" class="form-label">Usuario</label>
-    						<input type="text" class="form-control" id="inputusuario" placeholder="Usuario" required>
+    						<label for="newusuario" class="form-label">Usuario</label>
+    						<input type="text" class="form-control" id="newusuario" value="<%=rs.getString(4)%>" placeholder="Usuario" required>
   						</div>
   						<div class="col-md-3 mb-3">
-    						<label for="inputclave" class="form-label">Password</label>
-    						<input type="password" class="form-control" id="inputclave" placeholder="Contraseña" required>
+    						<label for="newclave" class="form-label">Password</label>
+    						<input type="password" class="form-control" id="newclave" value="<%=rs.getString(5)%>" placeholder="Contraseña" required>
   						</div>
   					</div>
   					<div class="row">
-  						<div class="col-7 mb-3">
-    						<label for="inputdireccion" class="form-label">Dirección</label>
-    						<input type="text" class="form-control" id="inputdireccion" placeholder="Dirección de envío" required>
+  						<div class="col-9 mb-3">
+    						<label for="newdireccion" class="form-label">Dirección</label>
+    						<input type="text" class="form-control" id="newdireccion" value="<%=rs.getString(8)%>" placeholder="Dirección de envío" required>
   						</div>
-  						<div class="col-md-5 mb-3">
-    						<label for="inputbarrio" class="form-label">Barrio</label>
-    						<input type="text" class="form-control" id="inputbarrio" placeholder="Nombre Barrio" required>
+  						<div class="col-md-3 mb-3">
+    						<label for="estado" class="form-label">Estado cliente</label>
+    						<input type="text" class="form-control" id="estado" value="<%=rs.getString(6)%>" placeholder="Estado actual del cliente" readonly="readonly">
+  						</div>
+  					</div>				
+  					<div class="row">
+  						<div class="col-md-4 mb-3">
+  						<%
+  						try{
+  							Connection cn=ConnectionProvider.getCon();
+  							Statement st=con.createStatement();
+  							String sql="select id_municipio, nom_municipio from storetic.municipio order by nom_municipio";
+  							ResultSet rst = stmt.executeQuery(sql);
+  							%>
+    							<label for="newciudad" class="form-label">Ciudad / Municipio</label>
+    							<select id="newciudad" class="form-select" required>
+    							<option selected>Seleccione...</option>
+    								<% while (rst.next()){%>
+    									<option value="0"><%=rst.getString(2)%></option>
+    								<%}%>
+   								</select>
+								<%
+								} catch (Exception e){
+									System.out.println(e);
+							}
+						%>
+  						</div>
+  						<div class="col-md-4 mb-3">
+  						<%
+  						try{
+  							Connection cn=ConnectionProvider.getCon();
+  							Statement st=con.createStatement();
+  							String sql="select nom_departamento, cod_pais from storetic.departamento order by nom_departamento";
+  							ResultSet rst = stmt.executeQuery(sql);
+  							%>
+    						<label for="newdepartamento" class="form-label">Departamento</label>
+    						<select id="newdepartamento" class="form-select" required>
+    						<option selected>Seleccione...</option>
+    						<% while (rst.next()){
+    							%>
+    							<option value="0"><%=rst.getString(1)%></option>
+      							<%}%>
+    						</select>
+    						<%
+								} catch (Exception e){
+									System.out.println(e);
+							}
+						%>
+  						</div>
+  						<div class="col-md-4 mb-3">
+  						<%
+  						try{
+  							Connection cn=ConnectionProvider.getCon();
+  							Statement st=con.createStatement();
+  							String sql="select pais_abreviado, nom_pais from storetic.paises order by nom_pais";
+  							ResultSet rst = stmt.executeQuery(sql);
+  							%>
+    						<label for="newpais" class="form-label">País</label>
+    						<select id="newpais" class="form-select" required>
+      							<option selected>Seleccione...</option>
+      							<% while (rst.next()){
+    							%>
+    							<option value="0"><%=rst.getString(2)%></option>
+      							<%}%>
+    						</select>
+    						<%
+								} catch (Exception e){
+									System.out.println(e);
+							}
+						%>
   						</div>
   					</div>
   					<div class="row">
   						<div class="col-4 mb-3">
-    						<label for="inputciudad" class="form-label">Ciudad</label>
-    						<select id="inputciudad" class="form-select" required>
-      							<option selected>Seleccione...</option>
-      						<option>...</option>
-    						</select>
+    						<label for="newtelefono_celular" class="form-label">Teléfono Celular</label>
+    						<input type="text" class="form-control" id="newtelefono_celular" placeholder="Número de teléfono celular" required>
   						</div>
   						<div class="col-md-4 mb-3">
-    						<label for="inputdepartamento" class="form-label">Departamento</label>
-    						<select id="inputdepartamento" class="form-select" required>
-      							<option selected>Seleccione...</option>
-      						<option>...</option>
-    						</select>
-  						</div>
-  						<div class="col-md-4 mb-3">
-    						<label for="inputpais" class="form-label">País</label>
-    						<select id="inputpais" class="form-select" required>
-      							<option selected>Seleccione...</option>
-      						<option>...</option>
-    						</select>
-  						</div>
-  					</div>
-  					<div class="row">
-  						<div class="col-4 mb-3">
-    						<label for="inputtelefonocelular" class="form-label">Teléfono Celular</label>
-    						<input type="text" class="form-control" id="inputtelefonocelular" placeholder="Número de teléfono celular" required>
-  						</div>
-  						<div class="col-md-4 mb-3">
-    						<label for="inputtelefonofijo" class="form-label">Teléfono Fijo</label>
-    						<input type="text" class="form-control" id="inputtelefonofijo" placeholder="Número de teléfono fijo" required>
-  						</div>
-  						<div class="col-md-4 mb-3">
-    						<label for="inputestado" class="form-label">Estado cliente</label>
-    						<input type="text" class="form-control" id="inputestado" placeholder="Estado actual del cliente" required>
+    						<label for="newtelefono_fijo" class="form-label">Teléfono Fijo</label>
+    						<input type="text" class="form-control" id="newtelefono_fijo" placeholder="Número de teléfono fijo" required>
   						</div>
   					</div>
   					<div class="mb-3">
-    				<div class="col" >
-      					<button style="background-color:#0dcaf0;color:#FFFFFF;border:#0dcaf0 1px solid" type="submit" name="accion" value="Registrar" class="btn btn-primary btn">Actualizar Datos</button>
-    				</div>
-    					
+    					<div class="col" >
+      						<button style="background-color:#0dcaf0;color:#FFFFFF;border:#0dcaf0 1px solid" type="submit" name="accion" value="Actualizar" class="btn btn-primary btn">Actualizar Datos</button>
+    					</div>
   					</div>
 				</form>
 			</div>
 		</div>
+		<% 
+					String msg=request.getParameter("msg");
+
+					if ("done".equals(msg)){
+					%>
+						<figure class="text-center">
+						<strong class="text-center" style="color:#dc3545">Información actualizada correctamente</strong>
+					<% } %>
+					<%
+					if ("invalid".equals(msg)){
+					%>
+						<figure class="text-center">
+						<strong class="text-center" style="color:#dc3545">Algo salió mal! Intentalo de nuevo!</strong>
+				<% } %>
+		
 	</div>
+	<%
+	}
+	
+} catch (Exception e){
+	System.out.println(e);
+}
+%>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"

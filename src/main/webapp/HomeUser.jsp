@@ -13,10 +13,11 @@
 <body>
 <img alt="" width="100" src="img/BannerStoreTIC2.png"/>
 <nav class="nav nav-pills flex-column flex-sm-row">
-  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="UpdateUser.jsp" style="background-color:#0dcaf0" >Actualiza tu información</a>
-  <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" aria-disabled="true">Productos</a>
-  <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" aria-disabled="true">Síguenos</a>
-  <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contactanos</a>
+<%String usuario=session.getAttribute("usuario").toString();%>
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="UpdateUser.jsp" style="background-color:#0dcaf0" aria-disabled="true">Actualiza tu información</a>
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" style="background-color:#0d6efd" aria-disabled="true">Productos</a>
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" style="background-color:#0dcaf0" aria-disabled="true">Aliados</a>
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" style="background-color:#0d6efd" aria-disabled="true">Contactanos</a>
 </nav>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"

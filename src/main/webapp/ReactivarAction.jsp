@@ -11,12 +11,12 @@ int check=0;
 try{
 	Connection con=ConnectionProvider.getCon();
 	Statement stmt=con.createStatement();
-	String query="select * from storetic.usuarios where cedula='" + cedula + "' and correo_electronico='" + correo_electronico + "' and estado='inactivo'";
+	String query="select * from storetic.clientes where cedula='" + cedula + "' and correo_electronico='" + correo_electronico + "' and estado='inactivo'";
 	ResultSet rs=stmt.executeQuery(query);
 	
 	while (rs.next()){
 		check=1;
-		String sql="update storetic.usuarios set estado='activo' where cedula='" + cedula + "' and correo_electronico='" + correo_electronico + "'";
+		String sql="update storetic.clientes set estado='activo' where cedula='" + cedula + "' and correo_electronico='" + correo_electronico + "'";
 		stmt.executeUpdate(sql);
 		response.sendRedirect("Reactivar.jsp?msg=delete");
 	}
