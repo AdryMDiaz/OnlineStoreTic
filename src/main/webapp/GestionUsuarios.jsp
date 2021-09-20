@@ -31,7 +31,6 @@
 					<th scope="col">PAÍS</th>
 					<th scope="col">NÚMERO CELULAR</th>
 					<th scope="col">NÚMERO FIJO</th>
-					<th scope="col">ELIMINAR</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -58,7 +57,9 @@
 				<td><%=rs.getString(10)%></td>
 				<td><%=rs.getString(11)%></td>
 				<td><%=rs.getString(12)%></td>
-				<td><a href="#">Eliminar<i class='fas fa-pen-fancy'></i></a></td>
+				<div class="btn-group" role="group" aria-label="Basic outlined example">
+				  <td><a type="button" class="btn btn-outline-danger" href="EliminarUsuario.jsp">Eliminar</a></td>
+				</div>
 			</tr>
 			<% }
 				

@@ -42,7 +42,7 @@
 
 					if ("delete".equals(msg)){
 					%>
-						<strong style="color:#198754" class="text-center">Usuario reactivado satisfactoriamente, por favor da clic en "Volver al Inicio" para ingresar con tu usuario y contraseña, si no los recuerdas, dirigite a "Olvidé mi contraseña"</strong>
+						<strong style="color:#198754" class="text-center">Cliente reactivado satisfactoriamente, por favor da clic en "Volver al Inicio" para ingresar con tu usuario y contraseña, si no los recuerdas, dirigite a "Olvidé mi contraseña"</strong>
 					<% } %>
 					<%
 					if ("invalid".equals(msg)){

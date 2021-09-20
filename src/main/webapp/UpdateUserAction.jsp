@@ -5,31 +5,31 @@
 <%@page import="com.storetic.ConnectionProvider"%>
 <%@page import="java.sql.Connection"%>
 
-<% 
+<%
+String usuario=session.getAttribute("usuario").toString();
 String cedula=request.getParameter("cedula");
-String newnombre_completo=request.getParameter("newnombre_completo");
-String newcorreo_electronico=request.getParameter("newcorreo_electronico");
-String newusuario=request.getParameter("newusuario");
-String newclave=request.getParameter("newclave");
-String newestado = "Activo";
-String newdireccion=request.getParameter("newdireccion");
-String newciudad=request.getParameter("newciudad");
-String newdepartamento=request.getParameter("newdepartamento");
-String newpais=request.getParameter("newpais");
-String newtelefono_celular=request.getParameter("newtelefono_celular");
-String newtelefono_fijo=request.getParameter("newtelefono_fijo");
+String nombre_completo=request.getParameter("nombre_completo");
+String correo_electronico=request.getParameter("correo_electronico");
+String clave=request.getParameter("clave");
+String estado = request.getParameter("estado");
+String direccion=request.getParameter("direccion");
+String ciudad=request.getParameter("ciudad");
+String departamento=request.getParameter("departamento");
+String pais=request.getParameter("pais");
+String telefono_celular=request.getParameter("telefono_celular");
+String telefono_fijo=request.getParameter("telefono_fijo");
 
 int check=0;
 
 try{
 	Connection con=ConnectionProvider.getCon();
 	Statement stmt=con.createStatement();
-	String query="select * from storetic.clientes where cedula='" + cedula + "'";
+	String query="select * from storetic.clientes where usuario='" + usuario + "' and clave='" + clave + "'";
 	ResultSet rs=stmt.executeQuery(query);
 	
 	while (rs.next()){
 		check=1;
-		String sql="update storetic.clientes set nombre_completo ='"+ newnombre_completo + "', correo_electronico='" + newcorreo_electronico + "' where cedula ='" + cedula + "' and estado='activo'";
+		String sql="update storetic.clientes set nombre_completo='" + nombre_completo + "',direccion='" + direccion + "',ciudad='" + ciudad + "',departamento='" + departamento + "',pais='" + pais + "',telefono_celular='" + telefono_celular + "',telefono_fijo='" + telefono_fijo + "' where usuario ='" + usuario + "' and clave='" + clave + "'";
 		stmt.executeUpdate(sql);
 		response.sendRedirect("UpdateUser.jsp?msg=done");
 	}

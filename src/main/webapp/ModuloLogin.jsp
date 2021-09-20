@@ -50,7 +50,7 @@
 					if ("notexist".equals(msg)){
 					%>
 						<figure class="text-center">
-						<strong class="text-center" style="color:#dc3545">Usuario o Contraseña Incorrectos</strong>
+						<strong class="text-center" style="color:#dc3545">Cliente o Contraseña Incorrectos</strong>
 					<% } %>
 					<%
 					if ("invalid".equals(msg)){

@@ -11,7 +11,9 @@
 <link rel="shortcut icon" href="icon/BannerStoreTIC2.png">
 </head>
 <body>
-<img alt="" width="100" src="img/BannerStoreTIC2.png"/>
+<center>
+<img align="middle" alt="" width="600" src="img/BannerStoreTIC3.jpeg"/>
+</center>
 <nav class="nav nav-pills flex-column flex-sm-row">
 <%String usuario=session.getAttribute("usuario").toString();%>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="UpdateUser.jsp" style="background-color:#0dcaf0" aria-disabled="true">Actualiza tu información</a>

@@ -57,7 +57,7 @@
 				<%
 				if("invalid".equals(msg)){
 				%>
-					<strong style="color:#dc3545" class="text-center">Usuario ya se encuentra registrado</Strong>
+					<strong style="color:#dc3545" class="text-center">Cliente ya se encuentra registrado</Strong>
 				<%}%>
 			</div>
 		</div>

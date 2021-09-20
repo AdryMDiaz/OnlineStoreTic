@@ -11,14 +11,16 @@
 <link rel="shortcut icon" href="icon/BannerStoreTIC2.png">
 </head>
 <body>
-<img alt="" width="100" src="img/BannerStoreTIC2.png"/>
+<center>
+<img alt="" width="600" src="img/BannerStoreTIC3.jpeg"/>
+</center>
 <nav class="nav nav-pills flex-column flex-sm-row">
 <%String usuario=session.getAttribute("usuario").toString();%>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionUsuarios.jsp" style="background-color:#fd7e14">Gestion de Clientes</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionProveedores.jsp" style="background-color:#dc3545">Gestión de Proveedores</a>
-  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" style="background-color:#fd7e14">Gestión de Productos</a>
-  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" style="background-color:#dc3545">Gestión de Ventas</a>
-  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" style="background-color:#fd7e14">Consultas y Reportes</a>
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionProductos.jsp" style="background-color:#fd7e14">Gestión de Productos</a>
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionVentas.jsp" style="background-color:#dc3545">Gestión de Ventas</a>
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionReportes.jsp" style="background-color:#fd7e14">Consultas y Reportes</a>
 </nav>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"

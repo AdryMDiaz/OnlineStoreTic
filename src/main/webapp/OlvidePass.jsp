@@ -51,7 +51,7 @@
 				<%
 				if ("invalid".equals(msg)){
 				%>
-					<strong style="color:#dc3545" class="text-center">Los datos ingresados no coinciden o el usuario no esta registrado, por favor valide e intente nuevamente</Strong>
+					<strong style="color:#dc3545" class="text-center">Los datos ingresados no coinciden o el cliente no esta registrado, por favor valide e intente nuevamente</Strong>
 				<% } %>
 		</div>
 	</div>
