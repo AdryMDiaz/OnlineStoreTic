@@ -7,12 +7,15 @@
 	rel="stylesheet"
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
-<title>Store TIC</title>
+<title>Store TIC - Perfil Administrador</title>
 <link rel="shortcut icon" href="icon/BannerStoreTIC2.png">
 </head>
 <body>
 <center>
-<img alt="" width="600" src="img/BannerStoreTIC3.jpeg"/>
+<div align="center">
+	<img alt="200" width="1000" src="img/BannerStoreTIC3.jpeg"/>
+</div>
+<h3></h3>
 </center>
 <nav class="nav nav-pills flex-column flex-sm-row">
 <%String usuario=session.getAttribute("usuario").toString();%>
@@ -21,6 +24,7 @@
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionProductos.jsp" style="background-color:#fd7e14">Gestión de Productos</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionVentas.jsp" style="background-color:#dc3545">Gestión de Ventas</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionReportes.jsp" style="background-color:#fd7e14">Consultas y Reportes</a>
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="LogoutAdmin.jsp" style="background-color:#000">Salir del Sistema</a>
 </nav>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"

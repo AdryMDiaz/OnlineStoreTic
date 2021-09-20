@@ -21,9 +21,9 @@
 						<figure class="text-center">
 							<h5 style="color:#198754">Digite el NIT del proveedor a inactivar</h5>
 						<div class="mb-3" >
-							<input type="text" name="nit_proveedor" class="form-control"	id="formGroupExampleInput" placeholder="Digite el NIT del Proveedor registrado" required>
+							<input type="text" name="nit_proveedor" class="form-control"	id="formGroupExampleInput" placeholder="Digite el NIT del proveedor registrado" required>
 						</div>
-						<input style="background-color:#198754;color:#FFFFFF;border:#198754 1px solid" type="submit" name="accion" value="Inactivar" class="btn btn-warning btn" >
+						<input style="background-color:#198754;color:#FFFFFF;border:#198754 1px solid" type="submit" name="accion" value="Inactivar Proveedor" class="btn btn-warning btn" >
 					</div>
 				</form>
 				<div class="row row-cols-lg-7 g-1">

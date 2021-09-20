@@ -15,7 +15,7 @@
 <title>Gestión Proveedores</title>
 </head>
 <body>
-	<div class="container mt-4">
+	<div class="table mt-12">
 		<table class="table table-responsive table-striped table-hover">
 			<thead>
 				<tr>
@@ -71,6 +71,7 @@
 				<div align="center">
 					<div class="btn-group" role="group" aria-label="Basic outlined example">
 						<a type="button" class="btn btn-outline-success" href="AgregarProveedor.jsp">Crear Nuevo Proveedor</a>
+						<p></p>
 					</div>
 				</div>
 		</table>

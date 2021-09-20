@@ -15,7 +15,7 @@
 	rel="stylesheet"
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
-<title>Actualizar Proveedores</title>
+<title>Actualizar Proveedor</title>
 <link rel="shortcut icon" href="icon/BannerStoreTIC2.png">
 </head>
 <body>
@@ -99,21 +99,19 @@ try{
       					<div><h6 class="text-center"><a style="color:#dc3545"  href="GestionProveedores.jsp">Volver a Gestión Proveedores</a></h6></div>
     			</div>
 			</div>
-		</div>
-	</div>
 		<% 
 					String msg=request.getParameter("msg");
 
 					if ("valid".equals(msg)){
 					%>
 						<figure class="text-center">
-						<strong class="text-center" style="color:#198754">Información actualizada correctamente</strong>
+						<strong class="text-center" style="color:#198754">Proveedor actualizado correctamente</strong>
 					<% } %>
 					<%
 					if ("invalid".equals(msg)){
 					%>
 						<figure class="text-center">
-						<strong class="text-center" style="color:#dc3545">Contraseña Incorrecta, intentalo de nuevo</strong>
+						<strong class="text-center" style="color:#dc3545">Proveedor no se modificó o no existe en la base de datos, intentalo de nuevo!</strong>
 				<% } %>
 		
 	</div>
@@ -124,6 +122,8 @@ try{
 	System.out.println(e);
 }
 %>
+		</div>
+	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"

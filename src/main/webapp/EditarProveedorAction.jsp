@@ -28,7 +28,8 @@ int check=0;
 			check=1;
 			String sql="update storetic.proveedores set nombre_proveedor='" + nombre_proveedor + "', direccion='" + direccion + "',nom_municipio='" + nom_municipio + "',nom_departamento='" + nom_departamento + "',nom_pais='" + nom_pais + "',contacto_proveedor='"+ contacto_proveedor+"', telefono='" + telefono + "',correo_electronico='" + correo_electronico + "' where nit_proveedor='" + nit_proveedor + "'";
 			stmt.executeUpdate(sql);
-			response.sendRedirect("EditarProveedor.jsp?msg=valid");
+			request.getRequestDispatcher("EditarProveedor.jsp?msg=valid").forward(request, response);
+			//response.sendRedirect("EditarProveedor.jsp?msg=valid");
 		}
 		
 		if (check==0){

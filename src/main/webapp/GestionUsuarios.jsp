@@ -15,7 +15,7 @@
 	crossorigin="anonymous">
 <title>Insert title here</title>
 </head>
-	<div class="container mt-4">
+	<div class="table mt-12">
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
@@ -66,7 +66,7 @@
 			}catch(Exception e){
 				System.out.println(e);
 			}
-			%>	
+			%>
 			</tbody>
 		</table>
 	</div>
