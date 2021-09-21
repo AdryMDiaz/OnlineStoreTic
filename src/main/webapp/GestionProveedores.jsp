@@ -20,7 +20,7 @@
 			<thead>
 				<tr>
 					<th>NIT</th>
-					<th>NOMBRE PROVEEDOR</th>
+					<th>RAZÓN SOCIAL</th>
 					<th>DIRECCIÓN</th>
 					<th>MUNICIPIO</th>
 					<th>DEPARTAMENTO</th>

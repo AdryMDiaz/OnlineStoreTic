@@ -21,7 +21,7 @@
 						<figure class="text-center">
 							<h5 style="color:#198754">Digite el número de documento del Cliente a eliminar</h5>
 						<div class="mb-3" >
-							<input type="text" name="cedula" class="form-control"	id="formGroupExampleInput" placeholder="Digite el Nro. de Documento" required>
+							<input type="text" name="cedula" class="form-control"	id="formGroupExampleInput" placeholder="Digite el número de documento del cliente" required>
 						</div>
 						<input style="background-color:#198754;color:#FFFFFF;border:#198754 1px solid" type="submit" name="accion" value="Eliminar" class="btn btn-warning btn" >
 					</div>

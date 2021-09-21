@@ -76,18 +76,71 @@ try{
     						<input type="text" name="direccion" class="form-control" id="formGroupExampleInput" placeholder="Digite dirección del proveedor" value= "<%=rs.getString(3)%>" required>
   						</div>
   						<div class="col-md-6 mb-3">
-    						<label for="nom_municipio" class="form-label">Municipio / Ciudad</label>
-    						<input type="text" name="nom_municipio" class="form-control" id="formGroupExampleInput" placeholder="Digite ciudad del proveedor" value= "<%=rs.getString(4)%>" required>
-  						</div>
+  							<%
+  							try{
+  								Connection cn=ConnectionProvider.getCon();
+  								Statement st=cn.createStatement();
+  								String sql="select id_municipio, nom_municipio from storetic.municipio order by nom_municipio";
+  								ResultSet rst = st.executeQuery(sql);
+  								%>
+    								<label for="nom_municipio" class="form-label">Ciudad / Municipio</label>
+    								<select name="nom_municipio" class="form-select" required>
+    									<option></option>
+    									<% while (rst.next()){%>
+    									<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
+    									<%}%>
+   									</select>
+									<%
+									} catch (Exception e){
+										System.out.println(e);
+									}
+								%>
+  						</div>	
   					</div>
   					<div class="row">
   						<div class="col-md-6 mb-3">
-    						<label for="nom_departamento" class="form-label">Departamento</label>
-    						<input type="text" name="nom_departamento" class="form-control" id="formGroupExampleInput" placeholder="Digite departamento del proveedor" value= "<%=rs.getString(5)%>" required>
+  							<%
+  								try{
+  								Connection cn=ConnectionProvider.getCon();
+  								Statement st=cn.createStatement();
+  								String sql="select id_departamento, nom_departamento from storetic.departamento order by nom_departamento";
+  								ResultSet rst = st.executeQuery(sql);
+  							%>
+    							<label for="nom_departamento" class="form-label">Departamento</label>
+    							<select name="nom_departamento" class="form-select" required>
+    								<option selected></option>
+    							<% while (rst.next()){
+    							%>
+    								<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
+      							<%}%>
+    							</select>
+    							<%
+									} catch (Exception e){
+										System.out.println(e);
+								}
+								%>
   						</div>
   						<div class="col-md-6 mb-3">
-    						<label for="nom_pais" class="form-label">Páis</label>
-    						<input type="text" name="nom_pais" class="form-control" id="formGroupExampleInput" placeholder="Digite país del proveedor" value= "<%=rs.getString(6)%>" required>
+  							<%
+  							try{
+  								Connection cn=ConnectionProvider.getCon();
+  								Statement st=cn.createStatement();
+  								String sql="select pais_abreviado, nom_pais from storetic.paises order by nom_pais";
+  								ResultSet rst = st.executeQuery(sql);
+  							%>
+    							<label for="nom_pais" class="form-label">País</label>
+    							<select name="nom_pais" class="form-select" required>
+      								<option selected></option>
+      								<% while (rst.next()){
+    								%>
+    								<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
+      								<%}%>
+    							</select>
+    							<%
+									} catch (Exception e){
+										System.out.println(e);
+								}
+								%>
   						</div>
   					</div>			
   					<div>
@@ -136,6 +189,5 @@ try{
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
 		integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
 		crossorigin="anonymous"></script>
-</html>
 </body>
 </html>

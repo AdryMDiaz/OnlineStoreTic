@@ -77,9 +77,9 @@ try{
   							<%
   							try{
   								Connection cn=ConnectionProvider.getCon();
-  								Statement st=con.createStatement();
+  								Statement st=cn.createStatement();
   								String sql="select id_municipio, nom_municipio from storetic.municipio order by nom_municipio";
-  								ResultSet rst = stmt.executeQuery(sql);
+  								ResultSet rst = st.executeQuery(sql);
   								%>
     								<label for="ciudad" class="form-label">Ciudad / Municipio</label>
     								<select name="ciudad" class="form-select" required>
@@ -98,9 +98,9 @@ try{
   							<%
   								try{
   								Connection cn=ConnectionProvider.getCon();
-  								Statement st=con.createStatement();
+  								Statement st=cn.createStatement();
   								String sql="select id_departamento, nom_departamento from storetic.departamento order by nom_departamento";
-  								ResultSet rst = stmt.executeQuery(sql);
+  								ResultSet rst = st.executeQuery(sql);
   							%>
     							<label for="departamento" class="form-label">Departamento</label>
     							<select name="departamento" class="form-select" required>
@@ -120,9 +120,9 @@ try{
   							<%
   							try{
   								Connection cn=ConnectionProvider.getCon();
-  								Statement st=con.createStatement();
+  								Statement st=cn.createStatement();
   								String sql="select pais_abreviado, nom_pais from storetic.paises order by nom_pais";
-  								ResultSet rst = stmt.executeQuery(sql);
+  								ResultSet rst = st.executeQuery(sql);
   							%>
     							<label for="pais" class="form-label">País</label>
     							<select name="pais" class="form-select" required>

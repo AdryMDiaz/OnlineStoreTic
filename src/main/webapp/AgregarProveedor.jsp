@@ -1,6 +1,9 @@
 <%@page import="org.apache.catalina.connector.Response"%>
-<%@page import="java.sql.*"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Statement"%>
 <%@page import="com.storetic.ConnectionProvider"%>
+<%@page import="java.sql.Connection"%>
 <%@include file="AdminHome.jsp"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -19,7 +22,7 @@
 <link rel="shortcut icon" href="icon/BannerStoreTIC2.png">
 </head>
 <body>
-	<div class="container mt-5 col-lg-6">
+	<div class="container mt-6 col-lg-6">
 		<div class="card col-sm-12">
 			<div class="card-body">
 				<form class="form-sign" action="AgregarProveedorAction.jsp" method="POST">
@@ -40,7 +43,7 @@
   						</div>
   					</div>
   					<div class="row">
-  					<div class="col-md-6 mb-3">
+  						<div class="col-md-6 mb-3">
     						<label for="direccion" class="form-label">Dirección del Proveedor</label>
     						<input type="text" name="direccion" class="form-control" id="formGroupExampleInput" placeholder="Digite dirección del Proveedor" required>
   						</div>
@@ -48,22 +51,8 @@
     						<label for="telefono" class="form-label">Teléfono</label>
     						<input type="text" name="telefono" class="form-control" id="formGroupExampleInput" placeholder="Digite el teléfono del Proveedor" required>
   						</div>
-  						<div class="row">
-  						<div class="col-md-4 mb-3">
-  							<label for="nom_municipio" class="form-label">Ciudad / Municipio</label>
-    						<input type="text" name="nom_municipio" class="form-control" id="formGroupExampleInput" placeholder="Digite el Municipio del Proveedor" required>
-  						</div>	
-  						<div class="col-md-4 mb-3">
-  							<label for="nom_departamento" class="form-label">Departamento</label>
-    						<input type="text" name="nom_departamento" class="form-control" id="formGroupExampleInput" placeholder="Digite el Departamento del Proveedor" required>
-  						</div>
-  						<div class="col-md-4 mb-3">
-  							<label for="nom_pais" class="form-label">País</label>
-    						<input type="text" name="nom_pais" class="form-control" id="formGroupExampleInput" placeholder="Digite el país" required>
-  						</div>
   					</div>
-  					</div>
-  						<div class="row">
+  					<div class="row">
   						<div class="col-md-6 mb-3">
     						<label for="contacto_proveedor" class="form-label">Contacto del Proveedor</label>
     						<input type="text" name="contacto_proveedor" class="form-control" id="formGroupExampleInput" placeholder="Digite contacto del Proveedor" required>
@@ -72,7 +61,74 @@
     						<label for="correo_electronico" class="form-label">Dirección de Correo Electrónico</label>
     						<input type="email" name="correo_electronico" class="form-control" id="formGroupExampleInput" placeholder="Digite el correo electrónico del Proveedor" required>
   						</div>
-  					
+  					</div>
+  					<div class="row">
+  						<div class="col-md-4 mb-3">
+  							<%
+  							try{
+  								Connection cn=ConnectionProvider.getCon();
+  								Statement st=cn.createStatement();
+  								String sql="select id_municipio, nom_municipio from storetic.municipio order by nom_municipio";
+  								ResultSet rst = st.executeQuery(sql);
+  								%>
+    								<label for="nom_municipio" class="form-label">Ciudad / Municipio</label>
+    								<select name="nom_municipio" class="form-select" required>
+    									<option></option>
+    									<% while (rst.next()){%>
+    									<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
+    									<%}%>
+   									</select>
+									<%
+									} catch (Exception e){
+										System.out.println(e);
+									}
+								%>
+  						</div>	
+  						<div class="col-md-4 mb-3">
+  							<%
+  								try{
+  								Connection cn=ConnectionProvider.getCon();
+  								Statement st=cn.createStatement();
+  								String sql="select id_departamento, nom_departamento from storetic.departamento order by nom_departamento";
+  								ResultSet rst = st.executeQuery(sql);
+  							%>
+    							<label for="nom_departamento" class="form-label">Departamento</label>
+    							<select name="nom_departamento" class="form-select" required>
+    								<option selected></option>
+    							<% while (rst.next()){
+    							%>
+    								<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
+      							<%}%>
+    							</select>
+    							<%
+									} catch (Exception e){
+										System.out.println(e);
+								}
+								%>
+  						</div>
+  						<div class="col-md-4 mb-3">
+  							<%
+  							try{
+  								Connection cn=ConnectionProvider.getCon();
+  								Statement st=cn.createStatement();
+  								String sql="select pais_abreviado, nom_pais from storetic.paises order by nom_pais";
+  								ResultSet rst = st.executeQuery(sql);
+  							%>
+    							<label for="nom_pais" class="form-label">País</label>
+    							<select name="nom_pais" class="form-select" required>
+      								<option selected></option>
+      								<% while (rst.next()){
+    								%>
+    								<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
+      								<%}%>
+    							</select>
+    							<%
+									} catch (Exception e){
+										System.out.println(e);
+								}
+								%>
+  						</div>
+  					</div>
  					<div class="mb-3">
     					<div class="col" >
       						<button style="background-color:#198754;color:#FFFFFF;border:#198754 1px solid" type="submit" name="accion" value="Agregar" class="btn btn-primary btn">Agregar Proveedor</button>

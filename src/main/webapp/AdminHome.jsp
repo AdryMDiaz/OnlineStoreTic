@@ -24,6 +24,7 @@
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionProductos.jsp" style="background-color:#fd7e14">Gestión de Productos</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionVentas.jsp" style="background-color:#dc3545">Gestión de Ventas</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionReportes.jsp" style="background-color:#fd7e14">Consultas y Reportes</a>
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionContactanos.jsp" style="background-color:#dc3545">El cliente dice</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="LogoutAdmin.jsp" style="background-color:#000">Salir del Sistema</a>
 </nav>
 	<script

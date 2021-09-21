@@ -21,9 +21,10 @@
 	<%String usuario=session.getAttribute("usuario").toString();%>
 	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="" style="background-color:#ffc107; color:#000" aria-disabled="false"><b><%out.println("Bienvenido a StoreTIC" + usuario);%></b></a>
   	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="UpdateUser.jsp" style="background-color:#0dcaf0" aria-disabled="true">Actualiza tu información</a>
-  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="CarritoComprasUser.jsp" style="background-color:#0d6efd" aria-disabled="true">Carrito de Compras</a>
-  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="AliadosUser.jsp" style="background-color:#0dcaf0" aria-disabled="true">Aliados</a>
-  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="ContactoUser.jsp" style="background-color:#0d6efd" aria-disabled="true">Contactanos</a>
+  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="AliadosUser.jsp" style="background-color:#0d6efd" aria-disabled="true">Nuestros Aliados</a>
+  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="CarritoComprasUser.jsp" style="background-color:#0dcaf0" aria-disabled="true">Carrito de Compras</a>
+  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="PedidosUser.jsp" style="background-color:#0d6efd" aria-disabled="true">Mis Pedidos</a>
+  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="ContactoUser.jsp" style="background-color:#0dcaf0" aria-disabled="true">Contactanos</a>
   	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="LogoutUser.jsp" style="background-color:#000" aria-disabled="true">Salir de StoreTIC</a>
 </nav>
 	<script
