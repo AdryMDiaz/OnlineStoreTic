@@ -19,7 +19,7 @@
 </center>
 <nav class="nav nav-pills flex-column flex-sm-row">
 <%String usuario=session.getAttribute("usuario").toString();%>
-  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionUsuarios.jsp" style="background-color:#fd7e14">Gestion de Clientes</a>
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionClientes.jsp" style="background-color:#fd7e14">Gestion de Clientes</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionProveedores.jsp" style="background-color:#dc3545">Gestión de Proveedores</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionProductos.jsp" style="background-color:#fd7e14">Gestión de Productos</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionVentas.jsp" style="background-color:#dc3545">Gestión de Ventas</a>

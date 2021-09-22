@@ -136,7 +136,7 @@
   					</div>
   					<div class="row row-cols-lg-7 g-1">
     				<div class="col" >
-      					<div><h6 class="text-center"><a style="color:#dc3545"  href="GestionProveedores.jsp">Volver a Gestión Proveedores</a></h6></div>
+      					<div><h6 class="text-center"><a style="color:#dc3545"  href="GestionProveedores.jsp">Volver a Gestión de Proveedores</a></h6></div>
     			</div>
   				</div>
 				</form>

@@ -19,7 +19,7 @@ String nit_proveedor=request.getParameter("nit_proveedor");
 try{
 	Connection con=ConnectionProvider.getCon();
 	Statement stmt=con.createStatement();
-	String query="select * from storetic.proveedores";
+	String query="select * from storetic.proveedores where estado_proveedor = 'activo'";
 	ResultSet rs = stmt.executeQuery(query);
 	
 	while (rs.next()){

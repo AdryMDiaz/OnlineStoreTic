@@ -14,7 +14,7 @@
 	<div class="container mt-4 col-lg-4">
 		<div class="card col-sm-10">
 			<div class="card-body" style="border:#198754 1px solid">
-				<form class="form-sign" action="EliminarUsuarioAction.jsp" method="POST">
+				<form class="form-sign" action="EliminarClienteAction.jsp" method="POST">
 					<div class="form-group text-center">
 						<figure class="text-center">
 							<h2></h2>
@@ -28,7 +28,7 @@
 				</form>
 				<div class="row row-cols-lg-7 g-1">
     				<div class="col" >
-      					<div><h6 class="text-center"><a style="color:#198754"  href="GestionUsuarios.jsp">Volver a Gestión de Clientes</a></h6></div>
+      					<div><h6 class="text-center"><a style="color:#198754"  href="GestionClientes.jsp">Volver a Gestión de Clientes</a></h6></div>
     			</div>
 					<% 
 					String msg=request.getParameter("msg");

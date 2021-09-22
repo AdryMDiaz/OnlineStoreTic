@@ -5,7 +5,6 @@
 <%@page import="com.storetic.ConnectionProvider"%>
 <%@page import="java.sql.Connection"%>
 <%@include file="HomeUser.jsp"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +37,7 @@ try{
     						<input type="text" name="cedula" class="form-control" id="formGroupExampleInput" placeholder="Digite documento de identidad" value= "<%=rs.getString(1)%>" readonly="readonly" required>
   						</div>
   						<div class="col-md-6 mb-3">
-    						<label for="newnombre_completo" class="form-label">Nombres y Apellidos</label>
+    						<label for="nombre_completo" class="form-label">Nombres y Apellidos</label>
     						<input type="text" name="nombre_completo" class="form-control"	id="formGroupExampleInput" placeholder="Digite nombres y apellidos completos" value= "<%=rs.getString(2)%>" readonly="readonly" required>
   						</div>
   					</div>
@@ -49,11 +48,11 @@ try{
   						</div>
   						<div class="col-md-3 mb-3">
     						<label for="usuario" class="form-label">Usuario</label>
-    						<input type="text" name="usuario" class="form-control"	id="formGroupExampleInput" placeholder="Digite usuario" value= "<%=rs.getString(4)%>" readonly="readonly" required>
+    						<input type="text" name="usuario" class="form-control"	id="formGroupExampleInput" placeholder="Digite usuario" value= "<%=rs.getString(4)%>" readonly="readonly" readonly="readonly" required>
   						</div>
   						<div class="col-md-3 mb-3">
     						<label for="estado" class="form-label">Estado cliente</label>
-    						<input type="text" name="estado" class="form-control" id="formGroupExampleInput" placeholder="estado del cliente" value= "<%=rs.getString(6)%>" readonly="readonly" required>
+    						<input type="text" name="estado" class="form-control" id="formGroupExampleInput" placeholder="estado del cliente" value= "<%=rs.getString(6)%>" readonly="readonly" readonly="readonly" required>
   						</div>
   					</div>
   					 <div class="row">
@@ -73,34 +72,37 @@ try{
   						</div>
   					</div>
   					<div class="row">
-  						<div class="form-floating">
-  							<textarea name="comentarios" class="form-control" id="floatingTextarea2" placeholder="Deja tus comentarios aquí" style="height: 100px" required></textarea>
-  							<label for="floatingTextarea2">Escribe tus comentarios aquí</label>
-						</div>
+  						<div class="col-12 mb-3">
+    						<label for="comentarios_cliente" class="form-label">Escribe tus comentarios aquí (Máx. 250 caracteres)</label>
+    						<textarea type="text" name="comentarios_cliente" class="form-control" id="formGroupExampleInput" placeholder="Digita tus comentarios" value= "" required></textarea>
+  						</div>
+  					</div>
+  					<div class="row">
+  						<div class="col-12 mb-3">
+    						<label for="respuesta_admin" class="form-label">Respuesta Administrador (Máx. 250 caracteres)</label>
+    						<textarea type="text" name="respuesta_admin" class="form-control" id="formGroupExampleInput" placeholder="Respuesta Administrador" value= "" readonly="readonly" required></textarea>
+  						</div>
+  					</div>
+  					<div>
+						<input style="background-color:#0dcaf0;color:#FFFFFF;border:#0dcaf0 1px solid" type="submit" name="accion" value="Enviar al Admin" class="btn btn-primary btn">
 					</div>
-					<div class="row">
-					<p></p>
-  						<div>
-							<input style="background-color:#0dcaf0;color:#FFFFFF;border:#0dcaf0 1px solid" type="submit" name="accion" value="Enviar a Admin" class="btn btn-primary btn">
-						</div>
-					</div>
-				</form>
+  					</form>
 			</div>
 		</div>
 	</div>
 		<% 
 					String msg=request.getParameter("msg");
 
-					if ("done".equals(msg)){
+					if ("valid".equals(msg)){
 					%>
 						<figure class="text-center">
-						<strong class="text-center" style="color:#198754">El administrador se pondrá en contacto contigo!</strong>
+						<strong class="text-center" style="color:#198754">Gracias por tus comentarios...! pronto nos contactaremos contigo!</strong>
 					<% } %>
 					<%
 					if ("invalid".equals(msg)){
 					%>
 						<figure class="text-center">
-						<strong class="text-center" style="color:#dc3545">Escribe tus comentarios</strong>
+						<strong class="text-center" style="color:#dc3545">Comentarios superan los 250 carácteres, escribe menos</strong>
 				<% } %>
 		
 	</div>
@@ -110,7 +112,7 @@ try{
 } catch (Exception e){
 	System.out.println(e);
 }
-%>
+%>		
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
@@ -123,6 +125,5 @@ try{
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
 		integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
 		crossorigin="anonymous"></script>
-</html>
 </body>
 </html>
