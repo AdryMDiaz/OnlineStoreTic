@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Carrito de Compras</title>
+<title>Nuestros Aliados</title>
 </head>
 <%
 String nit_proveedor=request.getParameter("nit_proveedor");

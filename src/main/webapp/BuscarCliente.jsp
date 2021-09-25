@@ -13,10 +13,14 @@
 	rel="stylesheet"
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
-<title>Insert title here</title>
+<title>Gestión de Clientes - Buscar Cliente</title>
 </head>
 	<div class="table mt-12"> 
 		<table class="table table-striped table-hover">
+			<style>
+			 table { table-layout: fixed; }
+			 table th, table td { overflow: hidden; }
+			</style>
 			<thead>
 				<tr>
 					<th scope="col">CEDULA</th>

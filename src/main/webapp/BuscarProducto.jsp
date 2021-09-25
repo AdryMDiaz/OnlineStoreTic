@@ -3,7 +3,6 @@
 <%@page import="com.storetic.ConnectionProvider"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +12,7 @@
 	rel="stylesheet"
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
-<title>Módulo Productos</title>
+<title>Gestión Proveedores</title>
 </head>
 <body>
 	<div class="table mt-12">
@@ -24,10 +23,10 @@
 			</style>
 			<thead>
 				<tr>
-					<th>CÓDIGO</th>
-					<th>PRODUCTO</th>
-					<th>CATEGORIA</th>
-					<th>ID NIT PROVEEDOR</th>
+					<th>COD PRODUCTO</th>
+					<th>NOMBRE PRODUCTO</th>
+					<th>NOMBRE CATEGORIA</th>
+					<th>NIT PROVEEDOR</th>
 					<th>PRECIO COMPRA</th>
 					<th>ID IVA</th>
 					<th>PRECIO VENTA</th>
@@ -39,10 +38,11 @@
 			</thead>
 			<tbody>
 				<%
-try{
+			try{
+				String nombuscar=request.getParameter("txtbuscar");
 				Connection con=ConnectionProvider.getCon();
 				Statement stmt=con.createStatement();
-				String query="select p.*,c.categoria,i.porcentaje_iva,e.estado from storetic.productos p, storetic.categorias c, storetic.iva i, storetic.estado e where p.id_categoria=c.id_categoria and p.id_iva=i.id_iva and e.id_estado = p.id_estado order by codigo_producto, nombre_producto";
+				String query="select p.*,c.categoria,i.porcentaje_iva,e.estado from storetic.productos p, storetic.categorias c, storetic.iva i, storetic.estado e where p.id_categoria=c.id_categoria and p.id_iva=i.id_iva and e.id_estado = p.id_estado and c.categoria like '%" + nombuscar + "%'" + "order by codigo_producto, nombre_producto";
 				ResultSet rs = stmt.executeQuery(query);
 				
 				while (rs.next()){	
@@ -70,50 +70,17 @@ try{
 				  <td><a type="button" class="btn btn-outline-danger" href="ReactivarProducto.jsp">Reactivar</a></td>
 				</div>			
     		</tr>
-			<% }
-				
+			<%
+				}
 			}catch(Exception e){
 				System.out.println(e);
 			}
 			%>
 			</tbody>
-				<div align="center">
-					<div class="container">
-						<div class="mb-3">
-							<a type="button" class="btn btn-outline-success" href="AgregarProducto.jsp">Crear Nuevo Producto</a>
-					</div>
-				</div>
-				<div class="container col-5">
-					<div class="input-group mb-6 g-3">
-						<form action="Import.jsp" method="post" enctype="multipart/form-data">
-							<input class= "form-control" type="file" name="file" size="50" accept=".csv" />					
-							<input type="submit" value="Importar Archivo" />
-						</form>
-					</div>
-				</div>
-				<div class="container col-5">
-					<div class="input-group mb-6 g-3">
-						<form action="BuscarProducto.jsp">
-							<input type="text" name="txtbuscar" class="form-control" placeholder="Buscar un producto por el nombre de su categoría">
-							<input class="btn btn-outline-secondary" type="submit" value="Buscar">
-						</form>
-					</div>
-					<p></p>
-				</div>
-							<% 
-								String msg=request.getParameter("msg");
-
-								if ("valid".equals(msg)){
-							%>
-								<figure class="text-center">
-									<strong class="text-center" style="color:#198754">Archivo Cargado Existosamente!</strong>
-							<% } %>
-							<%
-								if ("invalid".equals(msg)){
-							%>
-								<figure class="text-center">
-									<strong class="text-center" style="color:#dc3545">Error: No se seleccionó archivo para cargar</strong>
-							<% } %>
+    			<div>
+    			<p></p>
+      				<div><h6 class="text-center"><a style="color:#dc3545"  href="GestionProductos.jsp">Volver a Gestión de Productos</a></h6></div>
+    			</div>
 		</table>
 	</div>
 	<script

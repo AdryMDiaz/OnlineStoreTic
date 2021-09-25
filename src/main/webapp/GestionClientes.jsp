@@ -17,6 +17,10 @@
 </head>
 	<div class="table mt-12"> 
 		<table class="table table-striped table-hover">
+			<style>
+			 table { table-layout: fixed; }
+			 table th, table td { overflow: hidden; }
+			</style>
 			<thead>
 				<tr>
 					<th scope="col">CEDULA</th>
@@ -72,7 +76,7 @@
 				<div class="container col-4">
 					<div class="input-group mb-6 g-3">
 						<form action="BuscarCliente.jsp">
-							<input type="text" name="txtbuscar" class="form-control" placeholder="Qué buscas?">
+							<input type="text" name="txtbuscar" class="form-control" placeholder="Busca un cliente por nombre completo, ciudad, departamento o país">
 							<input class="btn btn-outline-secondary" type="submit" value="Buscar">
 						</form>
 					</div>

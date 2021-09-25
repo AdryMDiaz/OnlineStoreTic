@@ -17,6 +17,10 @@
 <body>
 	<div class="table mt-12">
 		<table class="table table-responsive table-striped table-hover">
+			<style>
+			 table { table-layout: fixed; }
+			 table th, table td { overflow: hidden; }
+			</style>
 			<thead>
 				<tr>
 					<th>NIT</th>
@@ -25,7 +29,7 @@
 					<th>MUNICIPIO</th>
 					<th>DEPARTAMENTO</th>
 					<th>PAÍS</th>
-					<th>CONTACTO</th>
+					<th>NOMBRE CONTACTO</th>
 					<th>TELÉFONO</th>
 					<th>CORREO ELECTRÓNICO</th>
 					<th>ESTADO</th>
@@ -74,7 +78,7 @@
 				<div class="container col-4">
 					<div class="input-group mb-6 g-3">
 						<form action="BuscarProveedor.jsp">
-							<input type="text" name="txtbuscar" class="form-control" placeholder="Qué buscas?">
+							<input type="text" name="txtbuscar" class="form-control" placeholder="Busca un proveedor por razón social o nombre de contacto">
 							<input class="btn btn-outline-secondary" type="submit" value="Buscar">
 						</form>
 					</div>

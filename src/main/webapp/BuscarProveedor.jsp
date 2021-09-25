@@ -12,11 +12,15 @@
 	rel="stylesheet"
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
-<title>Gestión Proveedores</title>
+<title>Gestión Proveedores - Buscar Proveedor</title>
 </head>
 <body>
 	<div class="table mt-12">
 		<table class="table table-responsive table-striped table-hover">
+			<style>
+			 table { table-layout: fixed; }
+			 table th, table td { overflow: hidden; }
+			</style>
 			<thead>
 				<tr>
 					<th>NIT</th>
@@ -25,7 +29,7 @@
 					<th>MUNICIPIO</th>
 					<th>DEPARTAMENTO</th>
 					<th>PAÍS</th>
-					<th>CONTACTO</th>
+					<th>NOMBRE_CONTACTO</th>
 					<th>TELÉFONO</th>
 					<th>CORREO ELECTRÓNICO</th>
 					<th>ESTADO</th>
