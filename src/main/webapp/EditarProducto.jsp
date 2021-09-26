@@ -52,7 +52,7 @@ try{
   					</div>
   					<div class="row">
   						<div class="col-md-4 mb-3">
-    						<label for="precio_compra" class="form-label">Precio compra</label>
+    						<label for="precio_compra" class="form-label">Precio antes de IVA</label>
     						<input type="text" name="precio_compra" class="form-control" id="precio_compra" placeholder="Digite precio de compra" value= "<%=rs.getString("precio_compra")%>" required>
   						</div>
   						<div class="col-md-4 mb-3">
@@ -79,7 +79,7 @@ try{
 								%>
   						</div>	
   						<div class="col-md-4 mb-3">
-    						<label for="precio_venta" class="form-label">Precio_venta</label>
+    						<label for="precio_venta" class="form-label">Precio Venta</label>
     						<input type="text" name="precio_venta" readonly class="form-control" id="precio_venta" placeholder="Digite precio de venta" value= "<%=precio_venta%>" required>    						
   						</div>
   					</div>
@@ -135,7 +135,7 @@ try{
   								String sql="select id_categoria, categoria from storetic.categorias order by categoria";
   								ResultSet rst = st.executeQuery(sql);
   								%>
-    								<label for="id_categoria" class="form-label">Categoria</label>
+    								<label for="id_categoria" class="form-label">Categoría</label>
     								<select name="id_categoria" class="form-select" id="id_categoria" required>
     									<option></option>
     									<% while (rst.next()){%>

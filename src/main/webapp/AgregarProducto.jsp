@@ -131,7 +131,7 @@
 										%>
 							</div>
 							<div class="col-md-4 mb-3">
-								<label for="precio_compra" class="form-label">Precio de Compra</label> 
+								<label for="precio_compra" class="form-label">Precio antes de IVA</label> 
 								<input type="number" name="precio_compra" class="form-control" id="formGroupExampleInput" placeholder="Digite el precio de compra" required>
 							</div>
 						</div>
@@ -164,7 +164,7 @@
 						</div>
 						<div class="col-md-4 mb-3">
 							<label for="unidades_vendidas" class="form-label">Unidades Vendidas</label> 
-							<input type="number" name="unidades_vendidas" class="form-control" id="formGroupExampleInput" placeholder="Digite las unidades que se han Vendido" required>
+							<input type="number" name="unidades_vendidas" class="form-control" id="formGroupExampleInput" placeholder="0" readonly= "readonly" required>
 						</div>
 					</div>
 					<div class="mb-3">

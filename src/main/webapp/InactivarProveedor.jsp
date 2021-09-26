@@ -19,7 +19,7 @@
 						<figure class="text-center">
 							<h2></h2>
 						<figure class="text-center">
-							<h5 style="color:#198754">Digite el NIT del proveedor a inactivar</h5>
+							<h5 style="color:#198754">Digite el NIT del proveedor a Desactivar</h5>
 						<div class="mb-3" >
 							<input type="text" name="nit_proveedor" class="form-control"	id="formGroupExampleInput" placeholder="Digite el NIT del proveedor registrado" required>
 						</div>
@@ -35,12 +35,12 @@
 
 					if ("delete".equals(msg)){
 					%>
-						<strong style="color:#198754" class="text-center"> El Proveedor ha sido Inactivado satisfactoriamente</strong>
+						<strong style="color:#198754" class="text-center"> El Proveedor ha sido desactivado satisfactoriamente</strong>
 					<% } %>
 					<%
 					if ("invalid".equals(msg)){
 					%>
-						<strong style="color:#dc3545" class="text-center">NIT no se desactivó o ya se encuentra Inactivado</strong>
+						<strong style="color:#dc3545" class="text-center">NIT no se desactivó, no existe o ya se encuentra Inactivado</strong>
 					<% } %>
 					</div>
 			</div>

@@ -19,7 +19,7 @@
 						<figure class="text-center">
 							<h2></h2>
 						<figure class="text-center">
-							<h5 style="color:#198754">Digite el Código del Producto a Inactivar</h5>
+							<h5 style="color:#198754">Digite el Código del Producto a Desactivar</h5>
 						<div class="mb-3" >
 							<input type="text" name="codigo_producto" class="form-control"	id="formGroupExampleInput" placeholder="Digite el Código del Producto Registrado" required>
 						</div>
@@ -35,12 +35,12 @@
 
 					if ("delete".equals(msg)){
 					%>
-						<strong style="color:#198754" class="text-center"> El Producto ha sido Inactivado satisfactoriamente</strong>
+						<strong style="color:#198754" class="text-center"> El Producto ha sido desactivado satisfactoriamente</strong>
 					<% } %>
 					<%
 					if ("invalid".equals(msg)){
 					%>
-						<strong style="color:#dc3545" class="text-center">El producto con el código digitado no se desactivó o ya se encuentra Inactivado</strong>
+						<strong style="color:#dc3545" class="text-center">El producto: con el código digitado no se desactivó, no existe o ya se encuentra Inactivado</strong>
 					<% } %>
 					</div>
 			</div>

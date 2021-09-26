@@ -13,7 +13,7 @@ String nit_proveedor=request.getParameter("nit_proveedor");
 String precio_compra=request.getParameter("precio_compra");
 String id_iva=request.getParameter("id_iva");
 String inventario_inicial=request.getParameter("inventario_inicial");
-String unidades_vendidas=request.getParameter("unidades_vendidas");
+String unidades_vendidas="0";
 String id_estado=request.getParameter("id_estado");
 
 

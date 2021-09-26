@@ -40,7 +40,7 @@
 					<%
 					if ("invalid".equals(msg)){
 					%>
-						<strong style="color:#dc3545" class="text-center">El Producto No se Reactivó o ya se encuentra activado, por favor valide nuevamente</strong>
+						<strong style="color:#dc3545" class="text-center">El Producto: No se reactivó, no existe o ya se encuentra activado, por favor valide nuevamente</strong>
 					<% } %>
 					</div>
 			</div>

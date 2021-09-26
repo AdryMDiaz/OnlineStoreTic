@@ -47,7 +47,7 @@
 					<%
 					if ("invalid".equals(msg)){
 					%>
-						<strong style="color:#dc3545" class="text-center">El número de Identificación y/o Correo electrónico digitados: Ya se reactivo anteriormente o No existe en nuestra base de datos, por favor intente nuevamente</strong>
+						<strong style="color:#dc3545" class="text-center">El número de identificación digitado: Ya se reactivo anteriormente o No existe en nuestra base de datos, por favor intente nuevamente</strong>
 					<% } %>
 					</div>
 			</div>

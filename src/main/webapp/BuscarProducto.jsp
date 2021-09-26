@@ -27,7 +27,7 @@
 					<th>NOMBRE PRODUCTO</th>
 					<th>NOMBRE CATEGORIA</th>
 					<th>NIT PROVEEDOR</th>
-					<th>PRECIO COMPRA</th>
+					<th>PRECIO ANTES DE IVA</th>
 					<th>ID IVA</th>
 					<th>PRECIO VENTA</th>
 					<th>INVENTARIO INICIAL</th>

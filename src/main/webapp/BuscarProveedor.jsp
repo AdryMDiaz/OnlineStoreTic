@@ -29,7 +29,7 @@
 					<th>MUNICIPIO</th>
 					<th>DEPARTAMENTO</th>
 					<th>PAÍS</th>
-					<th>NOMBRE_CONTACTO</th>
+					<th>NOMBRE CONTACTO</th>
 					<th>TELÉFONO</th>
 					<th>CORREO ELECTRÓNICO</th>
 					<th>ESTADO</th>
