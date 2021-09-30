@@ -189,4 +189,5 @@ try{
 		crossorigin="anonymous"></script>
 </html>
 </body>
+<%@include file="Footer.jsp"%>
 </html>

@@ -12,4 +12,5 @@
 <img alt="" width="600" src="img/Construccion.jpg"/>
 </center>
 </body>
+<%@include file="Footer.jsp"%>
 </html>
