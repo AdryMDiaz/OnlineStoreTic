@@ -8,18 +8,20 @@
 <% 
 
 try{
+	//Conectando a la base de datos
 	Connection con=ConnectionProvider.getCon();
 	
+	//Cargamos Archivo Jasper Report creado con JasperStudio 
 	String jrxmlFile = session.getServletContext().getRealPath("Coffee.jrxml");
 	InputStream input = new FileInputStream(new File(jrxmlFile));
 	
-	JasperReport jasperReport= JasperCompileManager.compileReport(input);
-	JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport, null, con);
+	//Generamos reporte en PDF
+	JasperReport jasperReport= JasperCompileManager.compileReport(input); //Compilar reporte
+	JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport, null, con); //Llenar reporte
+	JasperExportManager.exportReportToPdfStream(jasperPrint,response.getOutputStream()); //Exportar reporte en pdf
 	
-	JasperExportManager.exportReportToPdfStream(jasperPrint,response.getOutputStream());
-	
-	response.getOutputStream().flush();
-	response.getOutputStream().close();
+	response.getOutputStream().flush();//Almacenar en buffer temporal
+	response.getOutputStream().close();//cerrar conexión
 	
 }catch(Exception e){
 	e.printStackTrace();
