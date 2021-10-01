@@ -30,6 +30,7 @@
 					<th scope="col">DIRECCION</th>
 					<th scope="col">ASUNTO</th>
 					<th scope="col">COMENTARIOS DEL CLIENTE</th>
+					<th scope="col">FECHA CONTACTO</th>
 					
 				</tr>
 			</thead>
@@ -56,6 +57,7 @@
 				<td><%=rs.getString(9)%></td>
 				<td><%=rs.getString(10)%></td>
 				<td><%=rs.getString(11)%></td>
+				<td><%=rs.getString(12)%></td>
 			</tr>
 			<% }
 				
@@ -79,4 +81,5 @@
 		integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
 		crossorigin="anonymous"></script>
 </body>
+<%@include file="Footer.jsp"%>
 </html>

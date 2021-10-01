@@ -23,6 +23,7 @@ if ("admininicial".equals(usuario) && "admin123456".equals(clave)){
 		while (rs.next()){
 			z=1;
 			session.setAttribute("usuario", usuario);
+			session.setAttribute("cedula", rs.getString("cedula"));
 			response.sendRedirect("HomeUser.jsp");
 		}
 		

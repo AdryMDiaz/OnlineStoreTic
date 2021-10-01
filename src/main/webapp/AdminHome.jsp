@@ -7,6 +7,7 @@
 	rel="stylesheet"
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <title>Store TIC - Perfil Administrador</title>
 <link rel="shortcut icon" href="icon/BannerStoreTIC2.png">
 </head>
@@ -24,7 +25,7 @@
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionProductos.jsp" style="background-color:#fd7e14">Gestión de Productos</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionVentas.jsp" style="background-color:#dc3545">Gestión de Ventas</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionReportes.jsp" style="background-color:#fd7e14">Consultas y Reportes</a>
-  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionContactanos.jsp" style="background-color:#dc3545">El cliente dice</a>
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="GestionContactanos.jsp" style="background-color:#dc3545">Mensajes Recibidos</a>
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="LogoutAdmin.jsp" style="background-color:#000">Salir del Sistema</a>
 </nav>
 	<script

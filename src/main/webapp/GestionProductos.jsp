@@ -27,9 +27,9 @@
 					<th>CÓDIGO</th>
 					<th>PRODUCTO</th>
 					<th>CATEGORIA</th>
-					<th>ID NIT PROVEEDOR</th>
+					<th>NIT PROVEEDOR</th>
 					<th>PRECIO ANTES DE IVA</th>
-					<th>ID IVA</th>
+					<th>IVA</th>
 					<th>PRECIO VENTA</th>
 					<th>INVENTARIO INICIAL</th>
 					<th>UNIDADES VENDIDAS</th>

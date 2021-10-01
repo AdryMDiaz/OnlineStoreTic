@@ -198,7 +198,7 @@
 				if ("invalid".equals(msg)) {
 				%>
 				<figure class="text-center">
-					<strong class="text-center" style="color: #dc3545">El producto no se adicionó, por favor Intente nuevamente!</strong>
+					<strong class="text-center" style="color: #dc3545">El producto no se adicionó, por favor intente nuevamente!</strong>
 					<%
 					}
 					%>

@@ -78,14 +78,14 @@ try{
   							try{
   								Connection cn=ConnectionProvider.getCon();
   								Statement st=cn.createStatement();
-  								String sql="select id_municipio, nom_municipio from storetic.municipio order by nom_municipio";
+  								String sql="select * from storetic.municipio order by nom_municipio";
   								ResultSet rst = st.executeQuery(sql);
   								%>
     								<label for="ciudad" class="form-label">Ciudad / Municipio</label>
     								<select name="ciudad" class="form-select" required>
     									<option></option>
     									<% while (rst.next()){%>
-    									<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
+    									<option value=<%=rst.getString(1)%>><%=rst.getString(2)%></option>
     									<%}%>
    									</select>
 									<%
@@ -105,10 +105,9 @@ try{
     							<label for="departamento" class="form-label">Departamento</label>
     							<select name="departamento" class="form-select" required>
     								<option selected></option>
-    							<% while (rst.next()){
-    							%>
-    								<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
-      							<%}%>
+    							<% while (rst.next()){%>
+    									<option value=<%=rst.getString(1)%>><%=rst.getString(2)%></option>
+    									<%}%>
     							</select>
     							<%
 									} catch (Exception e){
@@ -129,7 +128,7 @@ try{
       								<option selected></option>
       								<% while (rst.next()){
     								%>
-    								<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
+    								<option value=<%=rst.getString(1)%>><%=rst.getString(2)%></option>
       								<%}%>
     							</select>
     							<%

@@ -7,6 +7,7 @@
 	rel="stylesheet"
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <title>Store TIC - Tienda Online</title>
 <link rel="shortcut icon" href="icon/BannerStoreTIC2.png">
 </head>
@@ -22,9 +23,10 @@
 	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="" style="background-color:#ffc107; color:#000" aria-disabled="false"><b><%out.println("Bienvenido a StoreTIC" + usuario);%></b></a>
   	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="UpdateUser.jsp" style="background-color:#0dcaf0" aria-disabled="true">Actualiza tu información</a>
   	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="AliadosUser.jsp" style="background-color:#0d6efd" aria-disabled="true">Nuestros Aliados</a>
-  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="CarritoComprasUser.jsp" style="background-color:#0dcaf0" aria-disabled="true">Carrito de Compras</a>
-  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="PedidosUser.jsp" style="background-color:#0d6efd" aria-disabled="true">Mis Pedidos</a>
-  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="ContactoUser.jsp" style="background-color:#0dcaf0" aria-disabled="true">Contactanos</a>
+  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="NuestrosProductos.jsp" style="background-color:#0dcaf0" aria-disabled="true">Nuestros Productos</a>
+  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="CarritoComprasUser.jsp" style="background-color:#0d6efd" aria-disabled="true">Carrito de Compras</a>
+  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="PedidosUser.jsp" style="background-color:#0dcaf0" aria-disabled="true">Mis Pedidos</a>
+  	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="ContactoUser.jsp" style="background-color:#0d6efd" aria-disabled="true">Contactanos</a>
   	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="LogoutUser.jsp" style="background-color:#000" aria-disabled="true">Salir de StoreTIC</a>
 </nav>
 	<script
