@@ -29,7 +29,7 @@
 			st2.close();
 			
 			//insertamos los datos del carrito a la tabla de ventas que va a llevar los pedidos realizados
-			String query3 = "insert into storetic.ventas (id_carrito,cedula,subtotal,valor_iva,valor_total) values("+id_carrito+","+cedula+","+subtotal+","+valor_iva+","+valor_total+")";
+			String query3 = "insert into storetic.ventas (id_carrito,cedula,subtotal,valor_iva,valor_total,id_estado) values("+id_carrito+","+cedula+","+subtotal+","+valor_iva+","+valor_total+","+3+")";
 			PreparedStatement st3 = con.prepareStatement(query3,  Statement.RETURN_GENERATED_KEYS);
 			int arows3 = st3.executeUpdate();
 			String id_venta = "";

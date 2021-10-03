@@ -12,7 +12,7 @@
 	rel="stylesheet"
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous">
-<title>Gestión de Ventas</title>
+<title>Gestión Detalle de Ventas</title>
 </head>
 <body>
 	<div class="table mt-12">
@@ -23,23 +23,21 @@
 			</style>
 			<thead>
 				<tr>
-					<th>ID VENTA</th>
-					<th>CEDULA CLIENTE</th>
-					<th>SUBTOTAL</th>
-					<th>VALOR IVA</th>
+					<th>ID DETALLE</th>
+					<th>PRODUCTO</th>
+					<th>CANTIDAD</th>
+					<th>VALOR UNITARIO</th>
 					<th>VALOR TOTAL</th>
-					<th>ID CARRITO</th>
-					<th>FECHA PEDIDO</th>
-					<th>ESTADO PEDIDO</th>
+					<th>ID VENTA</th>
 				</tr>
 			</thead>
 			<tbody>
 				<%
+				String id_venta=request.getParameter("id_venta");
 			try{
-				String nombuscar=request.getParameter("txtbuscar");
 				Connection con=ConnectionProvider.getCon();
 				Statement stmt=con.createStatement();
-				String query="select v.*, e.estado from storetic.ventas v, storetic.estado e where e.id_estado = v.id_estado";
+				String query="select d.*, p.nombre_producto from storetic.detalleventas d, storetic.productos p where p.codigo_producto = d.codigo_producto and id_venta='"+id_venta+"'";
 				ResultSet rs = stmt.executeQuery(query);
 				
 				while (rs.next()){
@@ -48,18 +46,11 @@
 			<tr>
 				
 				<td><%=rs.getString(1)%></td>
-				<td><%=rs.getString(2)%></td>
+				<td><%=rs.getString(7)%></td>
 				<td><%=rs.getString(3)%></td>
 				<td><%=rs.getString(4)%></td>
 				<td><%=rs.getString(5)%></td>
 				<td><%=rs.getString(6)%></td>
-				<td><%=rs.getString(7)%></td>
-				<td><%=rs.getString(9)%></td>
-				
-				<div class="btn-group" role="group" aria-label="Basic outlined example">
-				  <td><a type="button" class="btn btn-outline-success" href="VerDetalleCarrito.jsp?id_venta=<%=rs.getString(6)%>">Ver Detalle</a></td>
-				  <td><a type="button" class="btn btn-outline-dark" class="btn btn-outline-success" href="CambiarEstadoPedido.jsp">Cambia Estado</a></td>
-				</div>
     		</tr>
 			<%
 				}
@@ -68,17 +59,6 @@
 			}
 			%>
 			</tbody>
-			<div align="center">
-				<div class="container col-4">
-					<div class="input-group mb-6 g-3">
-						<form action="BuscarPedido.jsp">
-							<input type="text" name="txtbuscar" class="form-control" placeholder="Busca por id de carrito o Cédula de Cliente">
-							<input class="btn btn-outline-secondary" type="submit" value="Buscar">
-						</form>
-					</div>
-				</div>
-			<p></p>
-			</div>
 		</table>
 	</div>
 	<script

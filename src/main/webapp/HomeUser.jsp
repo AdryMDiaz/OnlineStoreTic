@@ -20,7 +20,7 @@
 </center>
 <nav class="nav nav-pills flex-column flex-sm-row">
 	<%String usuario=session.getAttribute("usuario").toString();%>
-	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="" style="background-color:#ffc107; color:#000" aria-disabled="false"><b><%out.println("Bienvenido a StoreTIC" + usuario);%></b></a>
+	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="" style="background-color:#ffc107; color:#000" aria-disabled="false"><b><%out.println("Bienvenido a StoreTIC " + usuario);%></b></a>
   	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="UpdateUser.jsp" style="background-color:#0dcaf0" aria-disabled="true">Actualiza tu información</a>
   	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="AliadosUser.jsp" style="background-color:#0d6efd" aria-disabled="true">Nuestros Aliados</a>
   	<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="NuestrosProductos.jsp" style="background-color:#0dcaf0" aria-disabled="true">Nuestros Productos</a>

@@ -41,13 +41,13 @@
 					<img src="img/BannerStoreTIC2.png" alt="">
 				</div>
 				<div class="terms">
-					<p>StoreTIC Es una pagina web creada con propositos academicos,
+					<p>StoreTIC Es una pagina web creada con propósitos académicos,
 						en la cual ponemos en evidencia los conocimeintos adquiridos
 						durante el desarrollo de los ciclos 1,2 y 3 del proyecto
 						MisionTIC2022, un programa liderado desde la Presidencia de la
-						republica, el cual busca capacitar tanto a hombres y mujeres en
-						habilidades tecnologicas que permitan el desarrollo de la economia
-						de Nuestra nacion,a partir de la implmentacion de tecnologias TIC
+						República, el cual busca capacitar tanto a hombres y mujeres en
+						habilidades tecnológicas que permitan el desarrollo de la economía
+						de Nuestra nación,a partir de la implementación de tecnologías TIC
 					</p>
 				</div>
 			</div>
@@ -59,14 +59,14 @@
 
 			<div class="box__footer">
 				<h2>Otros sitios</h2>
-				<a href="#">Desarrolladores</a> <a href="#">Pagos</a> <a href="#">Envios</a>
+				<a href="#">Desarrolladores</a> <a href="#">Pagos</a> <a href="#">Envíos</a>
 				<a href="#">Sucursales</a>
 			</div>
 
 			<div class="box__footer">
 				<h2>Ayuda / PQRs</h2>
-				<a href="#">Compras</a> <a href="#">Ventas</a> <a href="#">Solucion
-					de problemas</a> <a href="#">Centro de seguridad</a>
+				<a href="CarritoComprasUser.jsp">Compras</a> <a href="NuestrosProductos.jsp">Ventas</a> <a href="ContactoUser.jsp">Solución
+					de problemas</a> <a href="#">Centro de Seguridad</a>
 			</div>
 
 			<div class="box__footer">
@@ -79,7 +79,7 @@
 
 			<div class="box__footer">
 				<h2>Mi Cuenta</h2>
-				<a href="#">Acceder</a> <a href="#">Cerrar Sesion</a>
+				<a href="ModuloLogin.jsp">Iniciar Sesión</a> <a href="LogoutUser.jsp">Cerrar Sesion</a>
 
 			</div>
 

@@ -73,7 +73,7 @@ try{
   					</div>
   					<div class="row">
   						<div class="col-12 mb-3">
-    						<label for="asunto_comunicacion class="form-label">Asunto de la comuniación</label>
+    						<label for="asunto_comunicacion class="form-label">Asunto de la comunicación</label>
     						<input type="text" name="asunto_comunicacion" class="form-control" id="formGroupExampleInput" placeholder="Escriba el asunto" value= "" required>
   						</div>
   					</div>
@@ -96,7 +96,7 @@ try{
 					if ("valid".equals(msg)){
 					%>
 						<figure class="text-center">
-						<strong class="text-center" style="color:#198754">Gracias por tus comentarios...! pronto nos contactaremos contigo!</strong>
+						<strong class="text-center" style="color:#198754">¡Gracias por tus comentarios, pronto nos contactaremos contigo!</strong>
 					<% } %>
 					<%
 					if ("invalid".equals(msg)){

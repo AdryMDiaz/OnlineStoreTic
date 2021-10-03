@@ -75,7 +75,7 @@
     								<select name="nom_municipio" class="form-select" required>
     									<option></option>
     									<% while (rst.next()){%>
-    									<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
+    									<option value=<%=rst.getString(1)%>><%=rst.getString(2)%></option>
     									<%}%>
    									</select>
 									<%
@@ -97,7 +97,7 @@
     								<option selected></option>
     							<% while (rst.next()){
     							%>
-    								<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
+    								<option value=<%=rst.getString(1)%>><%=rst.getString(2)%></option>
       							<%}%>
     							</select>
     							<%
@@ -119,7 +119,7 @@
       								<option selected></option>
       								<% while (rst.next()){
     								%>
-    								<option value=<%=rst.getString(2)%>><%=rst.getString(2)%></option>
+    								<option value=<%=rst.getString(1)%>><%=rst.getString(2)%></option>
       								<%}%>
     							</select>
     							<%

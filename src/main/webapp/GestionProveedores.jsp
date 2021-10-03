@@ -41,7 +41,7 @@
 				String nombuscar=request.getParameter("txtbuscar");
 				Connection con=ConnectionProvider.getCon();
 				Statement stmt=con.createStatement();
-				String query="select * from storetic.proveedores";
+				String query="select pr.nit_proveedor, pr.nombre_proveedor, pr.direccion, m.nom_municipio, d.nom_departamento, p.nom_pais, pr.contacto_proveedor, pr.telefono, pr.correo_electronico, pr.estado_proveedor from storetic.proveedores pr left join storetic.municipio m on pr.nom_municipio=m.id_municipio left join storetic.departamento d on m.id_departamento=d.id_departamento left join storetic.paises p on d.cod_pais= p.cod_pais";
 				ResultSet rs = stmt.executeQuery(query);
 				
 				while (rs.next()){

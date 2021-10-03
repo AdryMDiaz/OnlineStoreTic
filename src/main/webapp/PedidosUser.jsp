@@ -30,7 +30,7 @@
 				if ("invalid".equals(msg)){
 				%>
 					<figure class="text-center">
-					<strong class="text-center" style="color:#dc3545">Error al finalizar pedido. Intentelo de nuevo!</strong>
+					<strong class="text-center" style="color:#dc3545">Error al finalizar Pedido. Inténtelo de nuevo!</strong>
 			<% } %>
 			</div>
 		</div>
@@ -60,6 +60,9 @@
 							<th scope="row">
 							 	Fecha
 							</th>
+							<th scope="row">
+							 	Estado Pedido
+							</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -67,7 +70,7 @@
 						String cedula = session.getAttribute("cedula").toString();
 						Connection con=ConnectionProvider.getCon();
 						Statement stmt=con.createStatement();		
-						String query="select v.*,cl.* from storetic.ventas v, storetic.clientes cl where cl.cedula = v.cedula and v.cedula= "+cedula;
+						String query="select v.*,cl.*, e.* from storetic.ventas v, storetic.clientes cl, storetic.estado e where cl.cedula = v.cedula and e.id_estado = v.id_estado and v.cedula= "+cedula;
 						ResultSet rs = stmt.executeQuery(query);
 						int valido = 0;
 						while(rs.next()){
@@ -95,6 +98,9 @@
 								<td>
 									<%=rs.getString("fecha")%>
 								</td>
+								<td>
+									<%=rs.getString("e.estado")%>
+								</td>
 							</tr>	
 						<% }
 						rs.close();
@@ -105,7 +111,7 @@
 			</div>
 			<% if(valido==0){ %>
 			<div class="col-12 text-center">
-				<h3 class="text-warning">No hay pedidos realizados.</h3>
+				<h3 class="text-warning">No hay Pedidos Realizados.</h3>
 			</div>
 			<% } %>
 		</div>

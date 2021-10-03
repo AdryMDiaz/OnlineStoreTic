@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Nuestros productos</title>
+<title>Nuestros Productos</title>
 </head>
 <body>
 <div class="container">
@@ -15,7 +15,7 @@
 		<div class="col-6 col-md-4 col-lg-3">
 			<form action="NuestrosProductos.jsp">
 				<div class="input-group my-3">					
-					<input type="text" name="buscar" value="<%=request.getParameter("buscar")%>" class="form-control" placeholder="Buscar producto">
+					<input type="text" name="buscar" value="" class="form-control" placeholder="Buscar producto">
 					<button class="btn btn-primary" type="submit">
 						<i class="fas fa-search"></i>
 					</button>				
@@ -32,14 +32,14 @@
 			%>
 				<figure class="text-center">
 				<strong class="text-center" style="color:#198754">
-					Producto añadido al carrito correctamente! <a class="btn btn-outline-success" href="CarritoComprasUser.jsp">Ir al Carrito</a>
+					Producto añadido al carrito correctamente! - Si el producto ya existía en Carrito, su cantidad fue incrementada. <a class="btn btn-outline-success" href="CarritoComprasUser.jsp">Ir al Carrito</a>
 				</strong>
 			<% } %>
 			<%
 			if ("invalid".equals(msg)){
 			%>
 				<figure class="text-center">
-				<strong class="text-center" style="color:#dc3545">Error al añadir al carrito. Intentelo de nuevo!</strong>
+				<strong class="text-center" style="color:#dc3545">Error al añadir al Carrito de Compras. Inténtelo de nuevo!</strong>
 		<% } %>
 		</div>
 	</div>
