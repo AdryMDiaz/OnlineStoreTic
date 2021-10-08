@@ -63,6 +63,9 @@
 							<th scope="row">
 							 	Estado Pedido
 							</th>
+							<th scope="row">
+							 	Liquidación
+							</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -100,6 +103,9 @@
 								</td>
 								<td>
 									<%=rs.getString("e.estado")%>
+								</td>
+								</td>
+									<td><a type="button" class="btn btn-outline-dark" href="Factura.jsp?id_venta=<%=rs.getString(1)%>">Imprimir Factura</a>
 								</td>
 							</tr>	
 						<% }
