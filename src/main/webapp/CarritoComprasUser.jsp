@@ -14,7 +14,7 @@
 	
 		<div class="row my-2">
 			<div class="col-12 text-center">
-				<h3>Carrito de Compras</h3>
+				<h3></h3>
 			</div>
 		</div>
 		<div class="row">

@@ -12,7 +12,7 @@ try{
 	Connection con=ConnectionProvider.getCon();
 	
 	//Cargamos Archivo Jasper Report creado con JasperStudio 
-	String jrxmlFile = session.getServletContext().getRealPath("reportes/Informe_Ventas_Productos.jrxml");
+	String jrxmlFile = session.getServletContext().getRealPath("reportes/Reporte_Clientes_Region.jrxml");
 	InputStream input = new FileInputStream(new File(jrxmlFile));
 	
 	//Generamos reporte en PDF

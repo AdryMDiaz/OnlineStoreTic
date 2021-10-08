@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Informe_Ventas_Productos" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2ec6c357-06bf-463b-be43-53d442aabe14">
+	<property name="template.engine" value="tabular_template"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="47"/>
+	<property name="ireport.y" value="451"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="StoreTIC"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" forecolor="#B89F7D" backcolor="#70A9C6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="101746a1-7510-4c0e-a020-ebaf96b7ef03"/>
+	<subDataset name="tableDataset" uuid="5408f3fb-78f0-403a-84ed-a4d5b81cce61">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="StoreTIC"/>
+		<queryString language="SQL">
+			<![CDATA[select distinct b.categoria, a.nombre_producto, sum(a.precio_compra) as "Inversion Inicial", sum(a.inventario_inicial) as "Inventario Inicial", sum(a.unidades_vendidas) as "Productos Vendidos", (sum(a.inventario_inicial)-sum(a.unidades_vendidas)) as Existencias, case when sum(c.valor_unitario) is null then "0" else sum(c.valor_unitario) end as "Valor sin IVA", case when sum(c.valor_total) is null then "0" else sum(c.valor_total) end as "Valor Total Venta", case when (sum(c.valor_total)-sum(valor_unitario)) is null then "0" else (sum(c.valor_total)-sum(valor_unitario)) end as "IVA"
+from storetic.productos a
+left join storetic.categorias b
+on a.id_categoria = b.id_categoria
+left join storetic.detalleventas c
+on c.codigo_producto = a.codigo_producto
+group by b.categoria, a.nombre_producto]]>
+		</queryString>
+		<field name="nombre_producto" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="nombre_producto"/>
+			<property name="com.jaspersoft.studio.field.label" value="nombre_producto"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="productos"/>
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Inversion Inicial" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.name" value="Inversion Inicial"/>
+			<property name="com.jaspersoft.studio.field.label" value="Inversion Inicial"/>
+		</field>
+		<field name="Inventario Inicial" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.name" value="Inventario Inicial"/>
+			<property name="com.jaspersoft.studio.field.label" value="Inventario Inicial"/>
+		</field>
+		<field name="Productos Vendidos" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.name" value="Productos Vendidos"/>
+			<property name="com.jaspersoft.studio.field.label" value="Productos Vendidos"/>
+		</field>
+		<field name="Existencias" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.name" value="Existencias"/>
+			<property name="com.jaspersoft.studio.field.label" value="Existencias"/>
+		</field>
+		<field name="Valor sin IVA" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="Valor sin IVA"/>
+			<property name="com.jaspersoft.studio.field.label" value="Valor sin IVA"/>
+		</field>
+		<field name="Valor Total Venta" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="Valor Total Venta"/>
+			<property name="com.jaspersoft.studio.field.label" value="Valor Total Venta"/>
+		</field>
+		<field name="IVA" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="IVA"/>
+			<property name="com.jaspersoft.studio.field.label" value="IVA"/>
+		</field>
+		<field name="categoria" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="categoria"/>
+			<property name="com.jaspersoft.studio.field.label" value="categoria"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="categorias"/>
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<group name="categoria">
+			<groupExpression><![CDATA[$F{categoria}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band height="555" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699" uuid="e8bc167b-bf12-4977-b458-b029eaaafdfb"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="815" height="65" uuid="e1a595c4-b39a-4bde-b6cf-36a6224d2ff6"/>
+					<textElement textAlignment="Center">
+						<font fontName="Century Gothic" size="32" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte de Ventas por Producto]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="-11" width="800" height="16" forecolor="#D0B48E" backcolor="#006699" uuid="dbbd7f7c-a4ef-4144-9e40-4eb80b0d4dc3"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF" uuid="c2f8be94-d59d-42c3-862d-5d35ba2b4a3b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF" uuid="6d83c685-14e3-41e8-aabf-ba56f75ebfad"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF" uuid="81eae817-c3ed-46a0-b950-81c5af3f605a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="200" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<componentElement>
+				<reportElement x="60" y="14" width="740" height="174" uuid="002220cd-ff4a-4748-a658-96a171ffccac">
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+					<property name="com.jaspersoft.studio.components.autoresize.next" value="true"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="Blank">
+					<datasetRun subDataset="tableDataset" uuid="29fcd8df-d20f-4353-b25b-bb6a5854db1b">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="742" uuid="687b1dfe-9437-45a3-8e3d-c19e14359fb5">
+						<jr:groupHeader groupName="categoria">
+							<jr:cell style="Table_CH" height="25">
+								<textField>
+									<reportElement x="0" y="0" width="742" height="25" uuid="a3678368-fb38-4d4d-a359-d97eae1be098"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="11" isBold="true" isItalic="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{categoria}]]></textFieldExpression>
+								</textField>
+							</jr:cell>
+						</jr:groupHeader>
+						<jr:column width="170" uuid="2899505d-da82-4380-ab8f-22453ab87c69">
+							<jr:tableHeader style="Table_TH" height="2"/>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<staticText>
+									<reportElement key="" style="SubTitle" x="0" y="0" width="170" height="30" forecolor="#FFFFFF" uuid="9644473d-83d1-4723-bf15-d77d8ec65146"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isBold="true"/>
+									</textElement>
+									<text><![CDATA[Producto]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="Table_CH" height="30"/>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement style="Detail" x="0" y="0" width="170" height="30" uuid="70465bfa-77c5-4956-afb0-edf780ad2235"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isItalic="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{nombre_producto}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="b0552b36-580a-49c9-ace0-f03be2a5cb9d">
+							<jr:tableHeader style="Table_TH" height="2"/>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<staticText>
+									<reportElement key="" style="SubTitle" x="0" y="0" width="90" height="30" forecolor="#FFFFFF" uuid="31ca7232-c321-49ba-84b3-efc44edccd13"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isBold="true"/>
+									</textElement>
+									<text><![CDATA[Inversion Inicial ($)]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="Table_CH" height="30"/>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement style="Detail" x="0" y="0" width="90" height="30" uuid="cb0d5b8c-e643-48b2-b172-c22758bd6461"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isItalic="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{Inversion Inicial}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="941ff8ac-c5b5-4c93-9225-484058796c97">
+							<jr:tableHeader style="Table_TH" height="2"/>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<staticText>
+									<reportElement key="" style="SubTitle" x="0" y="0" width="80" height="30" forecolor="#FFFFFF" uuid="21a22bc7-f630-4f54-968d-80ad39d3f812"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isBold="true"/>
+									</textElement>
+									<text><![CDATA[Inventario Inicial]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="Table_CH" height="30"/>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement style="Detail" x="0" y="0" width="80" height="30" uuid="c0003107-55d5-4d2b-a32c-bb535f7a863a"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{Inventario Inicial}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="09fa999b-cd64-44e2-bfb3-c47db184d9b9">
+							<jr:tableHeader style="Table_TH" height="2"/>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<staticText>
+									<reportElement key="" style="SubTitle" x="0" y="0" width="90" height="30" forecolor="#FFFFFF" uuid="564059bf-b1b1-4f60-9436-f5fa12ab1e7b"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isBold="true"/>
+									</textElement>
+									<text><![CDATA[Productos Vendidos]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="Table_CH" height="30"/>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement style="Detail" x="0" y="0" width="90" height="30" uuid="6227fd07-9400-41fd-b7de-645a1d0d0e4f"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isItalic="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{Productos Vendidos}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="d82d7600-800f-4932-b8e0-4fdf4f7ff2d6">
+							<jr:tableHeader style="Table_TH" height="2"/>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<staticText>
+									<reportElement key="" style="SubTitle" x="0" y="0" width="80" height="30" forecolor="#FFFFFF" uuid="4206a280-5d57-4498-8f83-fa8ebafe10c6"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isBold="true"/>
+									</textElement>
+									<text><![CDATA[Existencias]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="Table_CH" height="30"/>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement style="Detail" x="0" y="0" width="80" height="30" uuid="51b88151-c246-4d8c-b0ad-d8f19a7643cc"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{Existencias}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="75" uuid="b239b98c-84ca-4e01-b6cc-9dfe96f5955f">
+							<jr:tableHeader style="Table_TH" height="2"/>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<staticText>
+									<reportElement key="" style="SubTitle" x="0" y="0" width="75" height="30" forecolor="#FFFFFF" uuid="3bd83cd8-4f21-4ec6-834a-e1bb5a7213fa"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isBold="true"/>
+									</textElement>
+									<text><![CDATA[Valor sin IVA ($)]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="Table_CH" height="30"/>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement style="Detail" x="0" y="0" width="75" height="30" uuid="4f6e988b-b850-4b10-a7e4-284ad7d654a1"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isItalic="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{Valor sin IVA}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="75" uuid="5c471199-a266-474e-b56a-6f463dedc314">
+							<jr:tableHeader style="Table_TH" height="2"/>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<staticText>
+									<reportElement key="" style="SubTitle" x="0" y="0" width="75" height="30" forecolor="#FFFFFF" uuid="93a08f06-cd72-43ba-bc1f-45c317769535"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isBold="true"/>
+									</textElement>
+									<text><![CDATA[Valor Total Venta ($)]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="Table_CH" height="30"/>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement style="Detail" x="0" y="0" width="75" height="30" uuid="e21c52ac-76c6-486b-a574-619fe5cee800"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{Valor Total Venta}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="33d45e68-1ded-45e6-b3a4-6cb840fcc6a4">
+							<jr:tableHeader style="Table_TH" height="2"/>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<staticText>
+									<reportElement key="" style="SubTitle" x="0" y="0" width="80" height="30" forecolor="#FFFFFF" uuid="54f7be23-070b-412b-8fc7-9ab8e0c509e2"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isBold="true"/>
+									</textElement>
+									<text><![CDATA[IVA ($)]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="Table_CH" height="30"/>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement style="Detail" x="0" y="0" width="80" height="30" uuid="bc2d35e6-7cae-4b9c-ae2a-734ae59d1c3f"/>
+									<box leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Century Gothic" size="12" isItalic="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{IVA}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="2" uuid="93226881-d76b-4f64-aaa9-a4f19bf7e079">
+							<jr:tableHeader style="Table_TH" height="2"/>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30"/>
+							<jr:columnFooter style="Table_CH" height="30"/>
+							<jr:detailCell style="Table_TD" height="30"/>
+						</jr:column>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

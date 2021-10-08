@@ -13,7 +13,7 @@
 <div class="container">
 		<div class="row my-2">
 			<div class="col-12 text-center">
-				<h3>Mis Pedidos</h3>
+				<h3></h3>
 			</div>
 			<div class="col-12 text-center">
 			<% 
