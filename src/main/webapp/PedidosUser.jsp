@@ -73,7 +73,7 @@
 						String cedula = session.getAttribute("cedula").toString();
 						Connection con=ConnectionProvider.getCon();
 						Statement stmt=con.createStatement();		
-						String query="select v.*,cl.*, e.* from storetic.ventas v, storetic.clientes cl, storetic.estado e where cl.cedula = v.cedula and e.id_estado = v.id_estado and v.cedula= "+cedula;
+						String query="select v.id_venta, v.cedula, v.subtotal, v.valor_iva, v.valor_total, v.id_carrito, v.id_estado, date_format(fecha,'%d - %b - %Y') as fecha,cl.*, e.* from storetic.ventas v, storetic.clientes cl, storetic.estado e where cl.cedula = v.cedula and e.id_estado = v.id_estado and v.cedula= "+cedula;
 						ResultSet rs = stmt.executeQuery(query);
 						int valido = 0;
 						while(rs.next()){

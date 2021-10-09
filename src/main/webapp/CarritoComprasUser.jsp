@@ -77,7 +77,7 @@
 								<%=rs2.getString("nombre_producto")%>
 							</td>							
 							<td>
-								<%=rs2.getString("valor_unitario")%>
+								<%=rs2.getString("precio_compra")%>
 							</td>
 							<td>
 								<%=valor_iva2%>

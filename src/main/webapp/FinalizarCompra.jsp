@@ -43,7 +43,7 @@
 					while(rs4.next()){
 						check = 1;
 						int codigo_producto = rs4.getInt("codigo_producto");
-						String valor_unitario = rs4.getString("valor_unitario");
+						String valor_unitario = rs4.getString("precio_compra");
 						int cantidad = rs4.getInt("cantidad");
 						String total = rs4.getString("valor_total");
 						

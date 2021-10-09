@@ -34,14 +34,14 @@ int check=0;
 			}
 		}
 		
-		String query3="select p.precio_compra as precio_compra, i.porcentaje_iva as porcentaje_iva from storetic.productos p, storetic.iva i where i.id_iva = p.id_iva and p.codigo_producto= " + codigo_producto;
+		String query3="select p.codigo_producto, p.precio_compra as precio_compra, p.id_iva, i.porcentaje_iva as porcentaje_iva from storetic.productos p inner join storetic.iva i on p.id_iva=i.id_iva and p.codigo_producto= " + codigo_producto;
 		ResultSet rs3 = stmt.executeQuery(query3);		
 		double granTotal = 0;
 		
 		if(rs3.next()){
 			int cant = Integer.parseInt(cantidad);		
 			double valor_iva = (rs3.getInt("precio_compra")*rs3.getDouble("porcentaje_iva"));			
-			long precioVenta = Math.round(rs3.getInt("precio_compra")+valor_iva);			
+			long precioVenta = Math.round(rs3.getInt("precio_compra")+valor_iva);
 			double valor_total = cant*precioVenta;
 			
 			String query4 = "select * from storetic.detallecarrito where codigo_producto = "+codigo_producto+" and id_carrito = "+id_carrito;
@@ -61,14 +61,16 @@ int check=0;
 			}
 			rs4.close();
 			
-			String query6 = "select d.valor_total as valor_total, i.porcentaje_iva as porcentaje_iva from storetic.detallecarrito d, storetic.productos p, storetic.iva i where d.codigo_producto = p.codigo_producto and p.id_iva = i.id_iva and d.id_carrito = "+id_carrito;
+			String query6 = "select d.id_carrito, sum(d.valor_unitario) as valor_unitario, sum(d.valor_total) as valor_total, sum(p.precio_compra) as precio_compra, sum((d.valor_unitario - p.precio_compra)) as valor_iva from storetic.detallecarrito d inner join storetic.productos p on d.codigo_producto = p.codigo_producto inner join storetic.iva i on p.id_iva = i.id_iva and d.id_carrito = '" + id_carrito + "'group by d.id_carrito";
 			ResultSet rs6 = stmt.executeQuery(query6);
 			long subtotal = 0;
 			long valorIva = 0;
 			long total = 0;
 			while(rs6.next()){
-			 	long iva2 = Math.round(rs6.getInt("valor_total")*rs6.getDouble("porcentaje_iva"));
-			 	long subtotal2 = rs6.getInt("valor_total")-iva2;
+			 	/*long iva2 = Math.round(rs6.getInt("precio_compra")*rs6.getDouble("porcentaje_iva"));*/
+			 	long iva2 = rs6.getInt("valor_iva");
+			 	/*long subtotal2 = rs6.getInt("valor_total")-iva2;*/
+			 	long subtotal2 = rs6.getInt("precio_compra");
 			 	valorIva += iva2;
 			 	subtotal += subtotal2;
 			 	total += rs6.getInt("valor_total");

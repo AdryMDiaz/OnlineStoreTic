@@ -21,7 +21,7 @@ try{
 	String id_venta=request.getParameter("id_venta");
 	Connection con=ConnectionProvider.getCon();
 	Statement stmt=con.createStatement();
-	String query="select v.cedula, c.nombre_completo, v.id_venta, v.fecha, c.correo_electronico, c.telefono_celular, c.telefono_fijo, c.direccion from storetic.ventas v inner join storetic.clientes c on c.cedula = v.cedula where v.cedula= '" + cedula + "' and v.id_venta='" + id_venta + "'";
+	String query="select v.cedula, c.nombre_completo, v.id_venta, v.fecha, c.correo_electronico, c.telefono_celular, c.telefono_fijo, c.direccion, m.nom_municipio, d.nom_departamento, p.nom_pais from storetic.ventas v inner join storetic.clientes c on c.cedula = v.cedula inner join storetic.municipio m on c.ciudad=m.id_municipio inner join storetic.departamento d on d.id_departamento=m.id_departamento inner join storetic.paises p on p.cod_pais=d.cod_pais where v.cedula= '" + cedula + "' and v.id_venta='" + id_venta + "'";
 	ResultSet rs = stmt.executeQuery(query);
 	
 	while (rs.next()){
@@ -64,8 +64,20 @@ try{
     						<input type="text" name="telefono_fijo" class="form-control" id="formGroupExampleInput" value= "<%=rs.getString(7)%>" readonly="readonly" required>
   						</div>
   						<div class="col-md-4 mb-3">
-    						<label for="direccion" class="form-label">Dirección de Cliente</label>
+    						<label for="direccion" class="form-label">Dirección de Envío</label>
     						<input type="text" name="direccion" class="form-control" id="formGroupExampleInput" value= "<%=rs.getString(8)%>" readonly="readonly" required>
+  						</div>
+  						<div class="col-md-4 mb-3">
+    						<label for="ciudad" class="form-label">Ciudad</label>
+    						<input type="text" name="ciudad" class="form-control" id="formGroupExampleInput" value= "<%=rs.getString(9)%>" readonly="readonly" required>
+  						</div>
+  						<div class="col-md-4 mb-3">
+    						<label for="departamento" class="form-label">Departamento</label>
+    						<input type="text" name="departamento" class="form-control" id="formGroupExampleInput" value= "<%=rs.getString(10)%>" readonly="readonly" required>
+  						</div>
+  						<div class="col-md-4 mb-3">
+    						<label for="pais" class="form-label">País</label>
+    						<input type="text" name="pais" class="form-control" id="formGroupExampleInput" value= "<%=rs.getString(11)%>" readonly="readonly" required>
   						</div>
   					</div>
   					<div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -94,7 +106,7 @@ try{
 				try{
 					Connection cn=ConnectionProvider.getCon();
 					Statement stm=cn.createStatement();
-					String sql = ("select p.nombre_producto, d.cantidad, d.valor_unitario, v.valor_iva, d.valor_total, v.id_venta, v.fecha from storetic.detalleventas d inner join storetic.ventas v on d.id_venta = v.id_venta inner join storetic.productos p on d.codigo_producto = p.codigo_producto where v.cedula= '" + cedula + "' and v.id_venta='" + id_venta + "'");
+					String sql = ("select p.nombre_producto, d.cantidad, d.valor_unitario, (d.valor_total - d.valor_unitario) as valor_iva, d.valor_total, v.id_venta, v.fecha from storetic.detalleventas d inner join storetic.ventas v on d.id_venta = v.id_venta inner join storetic.productos p on d.codigo_producto = p.codigo_producto where v.cedula= '" + cedula + "' and v.id_venta='" + id_venta + "'");
 					ResultSet rs1 = stm.executeQuery(sql);
 				 	while(rs1.next())
 				 	{
