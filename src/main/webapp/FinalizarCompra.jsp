@@ -48,6 +48,7 @@
 						String total = rs4.getString("valor_total");
 						
 						int unidades_vendidas = rs4.getInt("unidades_vendidas");
+						int existencias=rs4.getInt("inventario_inicial")-rs4.getInt("unidades_vendidas");
 						int nuevas_unidades_vendidas = cantidad + unidades_vendidas;//sumo las cantidades pedidas con las que ya se vendieron anteriormente
 						
 						//añade el producto del carrito al detalle de la venta
@@ -58,8 +59,7 @@
 						//agrega las cantidades de cada producto a las unidades vendidas
 						String query6 = "update storetic.productos set unidades_vendidas = "+nuevas_unidades_vendidas+" where codigo_producto = "+codigo_producto;
 						PreparedStatement st6 = con.prepareStatement(query6);
-						int arows6 = st6.executeUpdate();
-						
+						int arows6 = st6.executeUpdate();						
 					}
 					
 				}else{

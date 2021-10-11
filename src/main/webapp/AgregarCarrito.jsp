@@ -61,19 +61,19 @@ int check=0;
 			}
 			rs4.close();
 			
-			String query6 = "select d.id_carrito, sum(d.valor_unitario) as valor_unitario, sum(d.valor_total) as valor_total, sum(p.precio_compra) as precio_compra, sum((d.valor_unitario - p.precio_compra)) as valor_iva from storetic.detallecarrito d inner join storetic.productos p on d.codigo_producto = p.codigo_producto inner join storetic.iva i on p.id_iva = i.id_iva and d.id_carrito = '" + id_carrito + "'group by d.id_carrito";
+			String query6 = "select sum(p.precio_compra*d.cantidad) as subtotal, sum(round((p.precio_compra*i.porcentaje_iva*d.cantidad))) as total_iva, sum(d.valor_total) as valor_total2 from storetic.detallecarrito d inner join storetic.productos p on d.codigo_producto = p.codigo_producto inner join storetic.iva i on p.id_iva = i.id_iva and d.id_carrito = '" + id_carrito + "'group by d.id_carrito";
 			ResultSet rs6 = stmt.executeQuery(query6);
 			long subtotal = 0;
 			long valorIva = 0;
 			long total = 0;
 			while(rs6.next()){
 			 	/*long iva2 = Math.round(rs6.getInt("precio_compra")*rs6.getDouble("porcentaje_iva"));*/
-			 	long iva2 = rs6.getInt("valor_iva");
+			 	long iva2 = rs6.getInt("total_iva");
 			 	/*long subtotal2 = rs6.getInt("valor_total")-iva2;*/
-			 	long subtotal2 = rs6.getInt("precio_compra");
+			 	long subtotal2 = rs6.getInt("subtotal");
 			 	valorIva += iva2;
 			 	subtotal += subtotal2;
-			 	total += rs6.getInt("valor_total");
+			 	total += rs6.getInt("valor_total2");
 			}
 			String query7 = "update storetic.carrito set valor_total = "+Long.toString(total)+", valor_iva = "+Long.toString(valorIva)+", subtotal = "+Long.toString(subtotal)+" where id_carrito = "+id_carrito;
 			PreparedStatement st7 = con.prepareStatement(query7);

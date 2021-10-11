@@ -55,16 +55,21 @@ try{
 	}
 	query += " order by p.codigo_producto, nombre_producto";
 	ResultSet rs = stmt.executeQuery(query);
-	
+		
 	while (rs.next()){
-		String precioVenta = Long.toString(Math.round(rs.getInt(5)+(rs.getInt(5)*rs.getFloat(11))));
+		String precioVenta = Long.toString(Math.round(rs.getInt(5)));
+		String IVA = Long.toString(Math.round(rs.getInt(5)*rs.getFloat(11)));
+		String Total = Long.toString(Math.round(rs.getInt(5)*rs.getFloat(11)) + rs.getInt(5));
 %>
 	<div class="col-6 col-md-4 col-lg-3">
 		<div class="card">
       <div class="card-body">
         <h5 class="card-title"><%=rs.getString("nombre_producto")%></h5>
         <p class="card-text">
-        	<%=rs.getString("categoria")%> - $ <%=precioVenta%> Iva incl.
+        	<%=rs.getString("categoria")%>
+        	<p>Precio antes de IVA: $<%=precioVenta%></p>
+        	<p>Valor IVA: $<%=IVA%></p>
+        	<p>Precio total: $<%=Total%></p>
         </p>        
       </div>
       <div class="card-footer">

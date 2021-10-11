@@ -61,7 +61,7 @@
 	<subDataset name="tableDataset" uuid="5408f3fb-78f0-403a-84ed-a4d5b81cce61">
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="StoreTIC"/>
 		<queryString language="SQL">
-			<![CDATA[select distinct b.categoria, a.nombre_producto, sum(a.precio_compra) as "Inversion Inicial", sum(a.inventario_inicial) as "Inventario Inicial", sum(a.unidades_vendidas) as "Productos Vendidos", (sum(a.inventario_inicial)-sum(a.unidades_vendidas)) as Existencias, case when sum(c.valor_unitario) is null then "0" else sum(c.valor_unitario) end as "Valor sin IVA", case when sum(c.valor_total) is null then "0" else sum(c.valor_total) end as "Valor Total Venta", case when (sum(c.valor_total)-sum(valor_unitario)) is null then "0" else (sum(c.valor_total)-sum(valor_unitario)) end as "IVA"
+			<![CDATA[select distinct b.categoria, a.nombre_producto, sum(a.precio_compra)*sum(a.inventario_inicial) as "Inversion Inicial", sum(a.inventario_inicial) as "Inventario Inicial", sum(a.unidades_vendidas) as "Productos Vendidos", (sum(a.inventario_inicial)-sum(a.unidades_vendidas)) as Existencias, case when sum(c.valor_unitario) is null then "0" else sum(c.valor_unitario) end as "Valor sin IVA", case when sum(c.valor_total) is null then "0" else sum(c.valor_total) end as "Valor Total Venta", case when (sum(c.valor_total)-sum(valor_unitario)) is null then "0" else (sum(c.valor_total)-sum(valor_unitario)) end as "IVA"
 from storetic.productos a
 left join storetic.categorias b
 on a.id_categoria = b.id_categoria

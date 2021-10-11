@@ -80,9 +80,6 @@ try{
     						<input type="text" name="pais" class="form-control" id="formGroupExampleInput" value= "<%=rs.getString(11)%>" readonly="readonly" required>
   						</div>
   					</div>
-  					<div class="btn-group" role="group" aria-label="Basic outlined example">
-							<td><a type="button" class="btn btn-outline-dark" onclick="window.print();">Imprimir</a></td>
-					</div>
 				</form>
 			</div>
 			<div class="card-body">
@@ -106,7 +103,7 @@ try{
 				try{
 					Connection cn=ConnectionProvider.getCon();
 					Statement stm=cn.createStatement();
-					String sql = ("select p.nombre_producto, d.cantidad, d.valor_unitario, (d.valor_total - d.valor_unitario) as valor_iva, d.valor_total, v.id_venta, v.fecha from storetic.detalleventas d inner join storetic.ventas v on d.id_venta = v.id_venta inner join storetic.productos p on d.codigo_producto = p.codigo_producto where v.cedula= '" + cedula + "' and v.id_venta='" + id_venta + "'");
+					String sql = ("select p.nombre_producto, d.cantidad, d.valor_unitario, round(d.valor_unitario*i.porcentaje_iva) as valor_iva, d.valor_total, v.id_venta, v.fecha from storetic.detalleventas d inner join storetic.ventas v on d.id_venta = v.id_venta inner join storetic.productos p on d.codigo_producto = p.codigo_producto inner join storetic.iva i on p.id_iva=i.id_iva where v.cedula= '" + cedula + "' and v.id_venta='" + id_venta + "'");
 					ResultSet rs1 = stm.executeQuery(sql);
 				 	while(rs1.next())
 				 	{
@@ -126,6 +123,46 @@ try{
 				}%>
 				</tbody>
 			</table>
+			</div>
+			<div class="card-body">
+				<h3>Liquidación de Totales</h3>
+	
+				<tbody>
+				<%
+				try{
+					Connection cn=ConnectionProvider.getCon();
+					Statement stm=cn.createStatement();
+					String sql = ("select subtotal, valor_iva, valor_total from storetic.ventas as v where v.cedula= '" + cedula + "' and v.id_venta='" + id_venta + "'");
+					ResultSet rs2 = stm.executeQuery(sql);
+				 	while(rs2.next())
+				 	{
+				 		
+				%>
+				<table class="table text-center" class="table table-responsive table-striped table-hover">
+					<style>
+					 table { table-layout: fixed; }
+					 table th, table td { overflow: hidden; }
+					</style>
+				<tr>
+				    <td align="right">Subtotal: $ <%=rs2.getString(1)%></td>
+				</tr>
+				<tr>
+				    <td align="right">IVA: $ <%=rs2.getString(2)%></td>
+				</tr>
+				<tr>
+				    <td align="right">Valor Total: $ <%=rs2.getString(3)%></td>
+				</tr>
+				</table>
+				<%}
+				
+				}catch(Exception e){
+					System.out.println(e);
+				}%>
+				</tbody>
+			</table>
+			<div class="btn-group" role="group" aria-label="Basic outlined example">
+				<td><a type="button" class="btn btn-outline-dark" onclick="window.print();">Imprimir</a></td>
+			</div>
 			</div>
 		</div>
 	</div>

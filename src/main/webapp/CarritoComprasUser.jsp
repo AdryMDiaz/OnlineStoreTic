@@ -22,7 +22,7 @@
 			String cedula = session.getAttribute("cedula").toString();
 			Connection con=ConnectionProvider.getCon();
 			Statement stmt=con.createStatement();		
-			String query="select * from storetic.carrito where cedula= "+cedula+" and estado = 1";
+			String query="select id_carrito, cedula, subtotal, valor_iva, valor_total, fecha from storetic.carrito where cedula= "+cedula+" and estado = 1";
 			ResultSet rs = stmt.executeQuery(query);
 			int valido = 0;
 			if(rs.next()){
@@ -41,6 +41,7 @@
 							<th><b>Nombre</b></th>
 							<th><b>Vlr. Unitario</b></th>
 							<th><b>Vlr. IVA</b></th>
+							<th><b>Subtotal</b></th>
 							<th><b>Cant.</b></th>
 							<th><b>Total</b></th>
 						</tr>
@@ -59,12 +60,13 @@
 					<% } %>
 					<tbody>						
 					<%
-					String query2 = "select d.*,p.*,i.* from storetic.detallecarrito d, storetic.productos p, storetic.iva i where i.id_iva = p.id_iva and d.codigo_producto = p.codigo_producto and d.id_carrito = "+rs.getString("id_carrito");
+					String query2 = "select d.id_detalle, d.id_carrito, d.codigo_producto, d.cantidad, d.valor_unitario, d.valor_total, p.*,i.* from storetic.detallecarrito d, storetic.productos p, storetic.iva i where i.id_iva = p.id_iva and d.codigo_producto = p.codigo_producto and d.id_carrito = "+rs.getString("id_carrito");
 					ResultSet rs2 = stmt.executeQuery(query2);
 					valido = 0;
 					while(rs2.next()){
 						valido = 1;
-						long valor_iva2 = Math.round(rs2.getInt("precio_compra")*rs2.getDouble("porcentaje_iva"));
+						long valor_iva2 = Math.round(rs2.getInt("precio_compra")*rs2.getDouble("porcentaje_iva")*rs2.getInt("cantidad"));
+						long Subtotal1=Math.round(rs2.getInt("precio_compra")*rs2.getInt("cantidad"));
 					%>
 						<tr>
 							<div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -81,6 +83,9 @@
 							</td>
 							<td>
 								<%=valor_iva2%>
+							</td>
+							<td>
+								<%=Subtotal1%>
 							</td>
 							<td>
 								<%=rs2.getString("cantidad")%>
