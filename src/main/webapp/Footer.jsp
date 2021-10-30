@@ -79,7 +79,9 @@
 
 			<div class="box__footer">
 				<h2>Mi Cuenta</h2>
-				<a href="ModuloLogin.jsp">Iniciar Sesión</a> <a href="LogoutUser.jsp">Cerrar Sesion</a>
+				<a href="ModuloLogin.jsp">Iniciar Sesión</a>
+				<a href="LogoutUser.jsp">Cerrar Sesion</a>
+				<a href="https://www.google.com">Salir de StoreTIC</a>
 
 			</div>
 

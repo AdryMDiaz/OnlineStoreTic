@@ -56,7 +56,17 @@
 					<%
 					if ("invalid".equals(msg)){
 					%>
-						<strong style="color:#dc3545" class="text-center">El Producto no se eliminó o no existe en este Carrito de Compras</strong>
+						<strong style="color:#dc3545" class="text-center">El Producto no se eliminó o no existe en este Carrito de Compras - La cantidad del Producto no se puede decrementar más, intente con el botón ""Eliminar"</strong>
+					<% } %>
+					<%
+					if ("incrementado".equals(msg)){
+					%>
+						<strong style="color:#198754" class="text-center"> La Cantidad del Producto ha sido incrementada</strong>
+					<% } %>
+					<%
+					if ("decrementado".equals(msg)){
+					%>
+						<strong style="color:#198754" class="text-center"> La Cantidad del Producto ha sido decrementada</strong>
 					<% } %>
 					<tbody>						
 					<%
@@ -88,7 +98,7 @@
 								<%=Subtotal1%>
 							</td>
 							<td>
-								<%=rs2.getString("cantidad")%>
+								<a href="IncDecCantidadAction.jsp?codigo_producto=<%=rs2.getString(3)%>&cantidad=dec"> <i class="fas fa-minus-circle"></i></a> <%=rs2.getString(4)%> <a href="IncDecCantidadAction.jsp?codigo_producto=<%=rs2.getString(3)%>&cantidad=inc"> <i class="fas fa-plus-circle"></i></a>
 							</td>
 							<td>
 								<%=rs2.getString("valor_total")%>

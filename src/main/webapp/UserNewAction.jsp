@@ -15,8 +15,8 @@ String direccion="";
 String ciudad="";
 String departamento="";
 String pais="";
-String telefono_celular="0";
-String telefono_fijo="0";
+String telefono_celular="3000000000";
+String telefono_fijo="6000000000";
 
 try{
 	Connection con=ConnectionProvider.getCon();
@@ -33,8 +33,8 @@ try{
 	ps.setString(8, ciudad);
 	ps.setString(9, departamento);
 	ps.setString(10, pais);
-	ps.setInt(11, Integer.parseInt(telefono_celular));
-	ps.setInt(12, Integer.parseInt(telefono_fijo));
+	ps.setString(11, telefono_celular);
+	ps.setString(12, telefono_fijo);
 	ps.executeUpdate();
 	response.sendRedirect("UserNew.jsp?msg=valid");
 	ps.close();
